@@ -210,15 +210,18 @@ h1, h2, h3 {
 }
 
 /* ===================== HERO ===================== */
+/* Beirut skyline photo (assets/img/hero-beirut.jpg, Unsplash License,
+   Sara Calado) with a dark ink-blue scrim so white text stays legible. */
 .hero {
-  padding-block: 96px 80px;
+  padding-block: 120px 96px;
   background:
-    radial-gradient(1200px 500px at 85% -10%, rgba(29, 78, 216, 0.07), transparent 60%),
-    var(--color-paper);
+    linear-gradient(180deg, rgba(12,17,27,0.82) 0%, rgba(12,17,27,0.9) 100%),
+    radial-gradient(1200px 600px at 85% 0%, rgba(29, 78, 216, 0.35), transparent 60%),
+    url("../assets/img/hero-beirut.jpg") center 65% / cover no-repeat;
 }
 .hero-inner { max-width: 780px; }
 .hero-eyebrow {
-  color: var(--color-accent);
+  color: var(--color-accent-light);
   text-transform: uppercase;
   letter-spacing: 0.14em;
   font-size: 0.8rem;
@@ -227,15 +230,17 @@ h1, h2, h3 {
 }
 .hero-title {
   font-size: clamp(2.2rem, 4vw, 3.3rem);
-  color: var(--color-charcoal-2);
+  color: var(--color-white);
 }
 .hero-subtitle {
   font-size: 1.15rem;
-  color: var(--color-muted);
+  color: rgba(255,255,255,0.82);
   max-width: 620px;
   margin-bottom: 32px;
 }
 .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 40px; }
+.hero .btn-ghost { border-color: rgba(255,255,255,0.6); color: var(--color-white); }
+.hero .btn-ghost:hover { background: var(--color-white); border-color: var(--color-white); color: var(--color-charcoal-2); }
 .hero-badges {
   display: flex;
   flex-wrap: wrap;
@@ -324,8 +329,13 @@ h1, h2, h3 {
 .service-card--featured .service-tag { background: rgba(255,255,255,0.16); color: var(--color-white); }
 
 /* ===================== SWORN ADVANTAGE ===================== */
+/* Wax seal photo (assets/img/sworn-seal.jpg, Unsplash License, Raymond
+   Petrik) — already-dark section, so only a scrim is needed, no text
+   color changes. */
 .sworn {
-  background: var(--color-charcoal-2);
+  background:
+    linear-gradient(100deg, rgba(12,17,27,0.94) 0%, rgba(12,17,27,0.86) 55%, rgba(12,17,27,0.7) 100%),
+    url("../assets/img/sworn-seal.jpg") center right / cover no-repeat;
   color: var(--color-white);
   padding-block: 96px;
 }
@@ -340,6 +350,44 @@ h1, h2, h3 {
 .sworn-points h3 { color: var(--color-accent-light); font-size: 1.1rem; margin-bottom: 8px; }
 .sworn-points p { color: rgba(255,255,255,0.68); margin: 0; font-size: 0.92rem; }
 
+/* ===================== FAQ ===================== */
+.faq { padding-block: 88px; }
+.faq-list {
+  max-width: 800px;
+  border-block-start: 1px solid var(--color-line);
+}
+.faq-item {
+  border-block-end: 1px solid var(--color-line);
+  padding-block: 20px;
+}
+.faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.02rem;
+  color: var(--color-charcoal-2);
+  list-style: none;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "+";
+  flex-shrink: 0;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--color-accent);
+  transition: transform 0.2s;
+}
+.faq-item[open] summary::after { content: "−"; }
+.faq-item p {
+  margin: 14px 0 0;
+  color: var(--color-muted);
+  font-size: 0.95rem;
+  max-width: 68ch;
+}
+
 /* ===================== CTA STRIP ===================== */
 .cta-strip { background: var(--color-paper-alt); padding-block: 56px; }
 .cta-strip-inner {
@@ -353,9 +401,23 @@ h1, h2, h3 {
 
 /* ===================== PAGE HERO (contact) ===================== */
 .page-hero { padding-block: 72px 40px; }
+.page-hero-inner {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+  align-items: center;
+}
 .page-hero-lead { color: var(--color-muted); max-width: 560px; font-size: 1.05rem; margin-bottom: 20px; }
 .contact-email-line { font-size: 0.95rem; color: var(--color-muted); }
 .contact-email { color: var(--color-accent); font-weight: 800; margin-inline-start: 6px; }
+/* Desk/paper photo (assets/img/contact-documents.jpg, Unsplash License, Kelly Sikkema) */
+.page-hero-image {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+}
 
 /* ===================== QUOTE FORM ===================== */
 .quote-section { padding-block: 40px 100px; }
@@ -523,7 +585,7 @@ h1, h2, h3 {
 
 /* ===================== RESPONSIVE ===================== */
 @media (max-width: 860px) {
-  .sworn-inner, .quote-grid { grid-template-columns: 1fr; }
+  .sworn-inner, .quote-grid, .page-hero-inner { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
 }
 

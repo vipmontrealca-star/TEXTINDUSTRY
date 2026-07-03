@@ -78,6 +78,22 @@ window.TEXTINDUSTRY_I18N = {
       networkError: "Could not reach the server. Please email quotes@textindustry.com directly.",
       genericError: "Something went wrong on our end. Please try again or email quotes@textindustry.com directly."
     },
+    faq: {
+      eyebrow: "Frequently Asked",
+      title: "Common questions",
+      q1: "What is a sworn (certified) translation, and when do I need one?",
+      a1: "A sworn translation is certified by an officially recognized sworn translator — Norma Naboulsi, Sworn Translator in Lebanon — and sealed with an official stamp. It's required whenever a translated document must be accepted by courts, notaries, ministries, embassies or international institutions: contracts, judgments, diplomas, civil-status records and similar official documents.",
+      q2: "Which languages does Textindustry work in?",
+      a2: "We translate and localize between English, French and Arabic.",
+      q3: "What areas do you serve?",
+      a3: "We're based in Beirut, Lebanon, and serve clients across the MENA region and internationally — quote requests and document submissions are handled remotely by email.",
+      q4: "What services does Textindustry offer besides translation?",
+      a4: "Alongside sworn legal translation, we offer localization for digital and cultural adaptation, press release writing and distribution, and fashion and creative editorial content.",
+      q5: "How do I request a quote, and what can I attach?",
+      a5: "Use the quote request form on our Contact page — you can attach PDF, DOCX, PNG or JPG files (up to 10MB each) directly with your request, or email quotes@textindustry.com.",
+      q6: "Is my document handled confidentially?",
+      a6: "Yes — all documents, especially sensitive legal material, are treated as strictly confidential."
+    },
     lang: { arabic: "Arabic", english: "English", french: "French", other: "Other" }
   },
 
@@ -156,6 +172,22 @@ window.TEXTINDUSTRY_I18N = {
       networkError: "Impossible de joindre le serveur. Veuillez écrire directement à quotes@textindustry.com.",
       genericError: "Une erreur est survenue de notre côté. Veuillez réessayer ou écrire directement à quotes@textindustry.com."
     },
+    faq: {
+      eyebrow: "Questions fréquentes",
+      title: "Questions courantes",
+      q1: "Qu'est-ce qu'une traduction assermentée (certifiée), et quand en ai-je besoin ?",
+      a1: "Une traduction assermentée est certifiée par une traductrice assermentée officiellement reconnue — Norma Naboulsi, traductrice assermentée au Liban — et scellée d'un cachet officiel. Elle est requise chaque fois qu'un document traduit doit être accepté par des tribunaux, notaires, ministères, ambassades ou institutions internationales : contrats, jugements, diplômes, actes d'état civil et documents officiels similaires.",
+      q2: "Dans quelles langues travaille Textindustry ?",
+      a2: "Nous traduisons et adaptons entre l'anglais, le français et l'arabe.",
+      q3: "Quelles régions desservez-vous ?",
+      a3: "Nous sommes basés à Beyrouth, au Liban, et servons des clients dans toute la région MENA et à l'international — les demandes de devis et l'envoi de documents se font à distance par e-mail.",
+      q4: "Quels services proposez-vous en plus de la traduction ?",
+      a4: "En plus de la traduction juridique assermentée, nous proposons la localisation pour l'adaptation numérique et culturelle, la rédaction et diffusion de communiqués de presse, ainsi que du contenu éditorial créatif pour la mode.",
+      q5: "Comment demander un devis, et que puis-je joindre ?",
+      a5: "Utilisez le formulaire de demande de devis sur notre page Contact — vous pouvez joindre directement des fichiers PDF, DOCX, PNG ou JPG (jusqu'à 10 Mo chacun), ou écrire à quotes@textindustry.com.",
+      q6: "Mon document est-il traité de manière confidentielle ?",
+      a6: "Oui — tous les documents, en particulier les documents juridiques sensibles, sont traités en toute confidentialité."
+    },
     lang: { arabic: "Arabe", english: "Anglais", french: "Français", other: "Autre" }
   },
 
@@ -233,6 +265,22 @@ window.TEXTINDUSTRY_I18N = {
       errorStatus: "يرجى تعبئة جميع الحقول المطلوبة قبل الإرسال.",
       networkError: "تعذّر الوصول إلى الخادم. يرجى مراسلتنا مباشرة على quotes@textindustry.com.",
       genericError: "حدث خطأ من جانبنا. يرجى المحاولة مجددًا أو مراسلتنا مباشرة على quotes@textindustry.com."
+    },
+    faq: {
+      eyebrow: "أسئلة شائعة",
+      title: "أسئلة متكررة",
+      q1: "ما هي الترجمة المحلّفة (المصدّقة)، ومتى أحتاج إليها؟",
+      a1: "الترجمة المحلّفة مصدّقة من قبل مترجمة محلّفة معترف بها رسميًا — نورما نابلسي، مترجمة محلّفة في لبنان — ومختومة بختم رسمي. تُطلب كلما وجب أن يُقبل مستند مترجم لدى المحاكم أو كتّاب العدل أو الوزارات أو السفارات أو المؤسسات الدولية: عقود، أحكام، شهادات، سجلات الأحوال المدنية ومستندات رسمية مماثلة.",
+      q2: "ما هي اللغات التي تعمل بها تكست إندستري؟",
+      a2: "نترجم ونوطّن بين الإنكليزية والفرنسية والعربية.",
+      q3: "ما هي المناطق التي تخدمونها؟",
+      a3: "مقرنا في بيروت، لبنان، ونخدم عملاء في جميع أنحاء منطقة الشرق الأوسط وشمال أفريقيا وعالميًا — تُعالَج طلبات عروض الأسعار وإرسال المستندات عن بُعد عبر البريد الإلكتروني.",
+      q4: "ما هي الخدمات التي تقدمها تكست إندستري إلى جانب الترجمة؟",
+      a4: "إلى جانب الترجمة القانونية المحلّفة، نقدّم التوطين للتكيّف الرقمي والثقافي، وكتابة وتوزيع البيانات الصحفية، ومحتوى تحريريًا إبداعيًا لعالم الموضة.",
+      q5: "كيف أطلب عرض سعر، وماذا يمكنني إرفاقه؟",
+      a5: "استخدموا نموذج طلب عرض السعر في صفحة التواصل — يمكنكم إرفاق ملفات PDF أو DOCX أو PNG أو JPG (حتى 10 ميغابايت لكل ملف) مباشرة مع طلبكم، أو المراسلة على quotes@textindustry.com.",
+      q6: "هل تُعامَل مستنداتي بسرية؟",
+      a6: "نعم — تُعامَل جميع المستندات، لا سيما المواد القانونية الحساسة، بسرية تامة."
     },
     lang: { arabic: "العربية", english: "الإنكليزية", french: "الفرنسية", other: "أخرى" }
   }

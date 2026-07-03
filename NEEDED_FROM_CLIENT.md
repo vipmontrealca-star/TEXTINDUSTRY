@@ -12,10 +12,10 @@ Live checklist of information/assets needed from the site owner to keep moving. 
 - [ ] Any additional recipients besides quotes@textindustry.com who should be notified (e.g. Norma directly, or a second inbox)?
 
 **M3 — Brand assets**
-- [ ] Logo file (SVG or high-res PNG preferred) — if none exists yet, say so and I can propose simple wordmark options using the current gold/charcoal palette.
-- [ ] Favicon (or I can derive one from the logo/brand mark once provided).
-- [ ] Any existing brand guidelines (exact hex colors, approved fonts) if the current palette (gold #b58a3d, charcoal #14161a, Cormorant Garamond / Inter / Amiri / Tajawal) should be adjusted.
-- [ ] A photo or headshot of Norma Naboulsi, if she should be pictured on the site (e.g. for a future About section).
+- [x] Logo/mark — custom-designed per client direction (geometric ن-inspired mark + TEXT/INDUSTRY two-tone lockup), doubling as favicon. Done 2026-07-03.
+- [x] Palette — corporate ink/paper/blue-ink theme (#1d4ed8 accent, #0c111b ink, white paper), Manrope + Tajawal. Done 2026-07-03, superseding the original gold/serif draft.
+- [x] Section imagery — Beirut skyline (hero), wax seal (Sworn Advantage), desk/paper (contact page), all free-license (Unsplash License, no attribution required), verified content-clean before use. Done 2026-07-03.
+- [ ] A photo or headshot of Norma Naboulsi, if she should be pictured on the site (e.g. for a future About section) — still open, this one has to come from the client.
 
 ## Phase 4 — Content Expansion (only relevant if these pages get requested)
 - [ ] Norma Naboulsi bio / credentials text for an About page, if wanted.

@@ -34,8 +34,9 @@ Built in small, modular milestones grouped into phases — each milestone checkp
 ### Phase 4 — Content Expansion (not started, only if requested)
 - [ ] **M5** — Additional pages: About/Team (Norma Naboulsi bio), individual service detail pages
 
-### Phase 5 — SEO & Launch Readiness (not started)
-- [ ] **M6** — SEO base: sitemap.xml, robots.txt, per-language `hreflang` (once URL/language strategy is decided — currently client-side switch only, no distinct URLs per language)
+### Phase 5 — SEO & Launch Readiness (in progress)
+- [x] **M6a** — SEO/AEO base (2026-07-03): `sitemap.xml`, `robots.txt`, canonical links, `ProfessionalService` JSON-LD structured data on both pages, `FAQPage` JSON-LD + a genuine visible FAQ section on the homepage. `hreflang` intentionally still deferred — needs the per-language URL strategy decision first (see M6b).
+- [ ] **M6b** — Per-language URL strategy decision (subfolders vs. subdomains vs. staying client-side-only) and `hreflang` implementation if adopted.
 - [ ] **M7** — Final launch checklist: broken-link check, cross-browser pass, go-live sign-off
 
 Each milestone should be scoped, built, verified, and logged below before starting the next.
@@ -156,3 +157,28 @@ Site was returning 403 despite "successful" GitHub Actions runs because the FTP 
 **Fix (`css/styles.css`):** added `direction: ltr;` to both `.brand` and `.brand-lockup` — pinning their internal flex order permanently, independent of the page's `dir`. Added a comment explaining why this override is intentional and must not be "corrected" back to inherit page direction later. Fixed at the CSS level (not per-instance) so it covers both the header lockup (wrapped in `.brand`, icon+wordmark) and the footer lockup (standalone `.brand-lockup`, no icon) with one change each.
 
 **Verified:** in Arabic mode, on both `index.html` and `contact.html`, in both header and footer — `getComputedStyle(...).direction` reports `"ltr"` on both elements, and TEXT's bounding-box left edge is confirmed left of INDUSTRY's in all four locations (2 pages × 2 lockup instances). Cross-checked with two independent preview tools (`preview_eval` and `preview_inspect`) since `preview_screenshot` and `window.innerWidth` were both misbehaving in this session's preview browser instance (returning 0/timing out — a tooling artifact, confirmed unrelated to the fix since relative element positions computed correctly regardless). No console errors.
+
+### 2026-07-03 — M3c: Section imagery sourced and integrated
+**Client request:** "no license needed" corporate visuals to make the site less bare, plus asked whether SEO/AEO had been kept in mind throughout (see M6a below — answer at the time was: not yet, it's its own backlog item).
+
+**Delivered — three images, all Unsplash License (free commercial use, no attribution legally required), found via `WebSearch`/`WebFetch` and verified before use:**
+- `assets/img/hero-beirut.jpg` — Beirut dusk skyline (Sara Calado). Used as the homepage hero's full-bleed background with a dark ink-blue scrim; hero text/buttons switched from dark-on-paper to white-on-photo (`.hero-title`, `.hero-subtitle`, `.hero .btn-ghost` recolored; `.hero-badges` white pills kept as-is, already worked against the photo).
+- `assets/img/sworn-seal.jpg` — wax seal stamp on a desk (Raymond Petrik). Used as the Sworn Advantage section's background (that section was already dark/white-text, so only a scrim was needed, no text-color changes).
+- `assets/img/contact-documents.jpg` — blank paper + pens on a desk (Kelly Sikkema). Added as a real `<img>` (not CSS background) in a new two-column `page-hero-inner` layout on `contact.html`, `alt=""` since it's decorative, stacks to one column under 860px.
+
+**Caught and avoided one real problem during sourcing:** an initial candidate for the contact-page image ("stack of papers on a table") turned out, on closer inspection of the actual photo content, to be a photographed branding/website-planning worksheet with a third-party company name and its own separately-printed Creative Commons BY-SA license notice visible in the shot — a different and more restrictive license than Unsplash's blanket grant, and thematically confusing besides. Discarded before use; replaced with the blank-paper-and-pens image after confirming no readable third-party text/logos in it. Lesson: Unsplash's license covers the photograph, not necessarily copyrighted material the photo happens to depict — worth eyeballing content, not just trusting the search snippet's description.
+
+**Verified:** all three images return HTTP 200 in the preview's network log; computed-style checks confirm the composited `background-image` layers (scrim + photo) on `.hero`/`.sworn`, and `object-fit: cover` + rounded corners on the contact-page `<img>`; hero title/subtitle confirmed white (`rgb(255,255,255)`) in both English and Arabic; no console errors; responsive stacking rule added for `.page-hero-inner` at the existing 860px breakpoint.
+
+### 2026-07-03 — M6a: SEO/AEO base
+**Client question:** whether SEO and AEO (how AI assistants like ChatGPT/Perplexity surface and quote sites) had been considered so far. Honest answer at the time: no, only basic meta/OG tags existed — this was already flagged as backlog item M6, not started. Client asked to do it now.
+
+**Delivered:**
+- `sitemap.xml` and `robots.txt` at the repo/site root (referencing the sitemap). Both already covered by the existing GitHub Actions deploy exclude-list logic — nothing in that list blocks root-level files, so no workflow change was needed.
+- `<link rel="canonical">` on both pages, pointing at their production URLs.
+- `ProfessionalService` JSON-LD structured data on both pages: name, logo, description, Beirut address, MENA `areaServed`, `founder` (Norma Naboulsi, Sworn Translator — matching the site's existing "led by" framing, not a new/unverified claim), `knowsLanguage` (en/fr/ar), and a `makesOffer` list mirroring the four service cards. Deliberately omitted fields with no verified real value (`telephone`, `priceRange`, `sameAs` social links) rather than fabricate placeholders.
+- A genuine, visible FAQ section on the homepage (`#faq`, six questions, native `<details>/<summary>` — accessible with zero JS) plus matching `FAQPage` JSON-LD on the same page only, mirroring the visible text exactly (required for the schema to be considered valid/non-spammy by search engines). All six Q&As translated EN/FR/AR. Content is grounded entirely in facts already stated elsewhere on the site (what a sworn translation is, languages served, area served, services offered, how to request a quote, confidentiality) — nothing new or unverifiable was invented for SEO purposes.
+
+**Verified:** both pages' JSON-LD blocks parse as valid JSON (checked with Node, not just eyeballed); FAQ section renders correctly in EN and AR with correct translations; native `<details>` open/close behavior and the CSS `+`/`−` marker confirmed working via direct property manipulation (the preview tool's synthetic click wasn't reliably toggling `<summary>` elements this session — consistent with earlier language-switcher click flakiness, a tooling issue, not a site bug); `sitemap.xml` and `robots.txt` both serve correctly with expected content; no console errors.
+
+**Still open (M6b):** `hreflang` was deliberately not added — it needs a real per-language URL strategy first (subfolders like `/fr/`, subdomains, or staying client-side-only), which was already flagged as an unresolved decision before this session and remains one.
