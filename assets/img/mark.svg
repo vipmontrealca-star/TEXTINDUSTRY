@@ -1,8 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
-  <!-- TEXTINDUSTRY mark — modern abstraction of the Arabic letter noon (ن):
-       an open bowl with a point above, set in a rounded ink-blue tile. -->
+  <!-- TEXTINDUSTRY mark — geometric abstraction of the Arabic letter noon (ن)
+       that also reads as an open book: an angular double-chevron bowl with a
+       diamond point above, in white on a rounded ink-blue tile. -->
   <rect width="48" height="48" rx="12" fill="#1d4ed8"/>
-  <circle cx="24" cy="13.5" r="3.6" fill="#ffffff"/>
-  <path d="M12.5 20.5 v2.5 a11.5 11.5 0 0 0 23 0 v-2.5"
-        fill="none" stroke="#ffffff" stroke-width="4.4" stroke-linecap="round"/>
+  <!-- outer bowl / book cover (open diamond) -->
+  <path d="M19 20 L10 29 L24 43 L38 29 L29 20"
+        fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linejoin="miter"/>
+  <!-- inner chevron / book pages -->
+  <path d="M16 28 L24 36 L32 28"
+        fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linejoin="miter"/>
+  <!-- diamond above -->
+  <path d="M24 5.5 L30.5 12 L24 18.5 L17.5 12 Z"
+        fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linejoin="miter"/>
+  <!-- the noon dot -->
+  <path d="M24 9.6 L26.4 12 L24 14.4 L21.6 12 Z" fill="#ffffff"/>
 </svg>

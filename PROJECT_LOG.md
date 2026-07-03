@@ -101,3 +101,10 @@ Each milestone should be scoped, built, verified, and logged below before starti
 **Verified (browser preview, computed styles + accessibility snapshot):** lockup renders flush (no gap) with correct colors/weights per side; ن mark renders 36×36 with blue tile; Manrope active LTR, Tajawal active RTL; RTL flips the lockup order and corner rounding correctly; dark aside card and blue contact-email confirmed on contact page; no console errors. Note: the preview screenshot tool timed out repeatedly this session (renderer responded fine to all other tools), so verification proof is computed-style based rather than visual screenshots.
 
 **Still open under M3b:** Open Graph image + OG/Twitter meta tags. `NEEDED_FROM_CLIENT.md` logo request now partially resolved — a logo now exists; client feedback on it welcome, and any official brand assets can replace/refine it.
+
+### 2026-07-03 — M3a follow-up: mark redrawn geometric (client reference image)
+**Client direction:** shared a reference image of the desired mark style — angular, diamond/chevron-based geometry (not the soft rounded bowl of the first draft), reading as both an abstracted ن and an open book.
+
+**Delivered:** redrew `assets/img/mark.svg` and the inline header SVG on both pages to match the reference: an open-diamond bowl (book cover) with a nested inner chevron (pages), a diamond outline above holding a solid diamond dot (the ن dot). Miter joins, butt caps, stroke 3.2 — fully angular. Same rounded ink-blue tile and white glyph retained.
+
+**Verified (browser preview, DOM inspection):** all four glyph elements render on both pages at 36×36 with correct white-on-blue colors; standalone mark.svg serves correctly (used as favicon); no console errors. Screenshot tool remained broken this session (times out; all other preview tools fine), so verification is computed-style/DOM-based.
