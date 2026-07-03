@@ -64,7 +64,13 @@
     <section class="quote-section">
       <div class="container quote-grid">
 
-        <form id="quote-form" class="quote-form" action="mailto:quotes@textindustry.com" method="post" enctype="multipart/form-data" novalidate>
+        <form id="quote-form" class="quote-form" action="php/send-quote.php" method="post" enctype="multipart/form-data" novalidate>
+          <!-- Honeypot: hidden from real users, catches naive bots that autofill every field -->
+          <div class="form-field form-field--honeypot" aria-hidden="true">
+            <label for="website">Website</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+          </div>
+
           <div class="form-row">
             <div class="form-field">
               <label for="name" data-i18n="form.name">Full name <span aria-hidden="true">*</span></label>

@@ -15,7 +15,7 @@ Built in small, modular milestones grouped into phases — each milestone checkp
 - [x] **M1.1** — Local git repository initialized
 
 ### Phase 2 — Core Functionality (in progress)
-- [ ] **M2** — Form backend: replace `mailto:` placeholder with a real endpoint that accepts `multipart/form-data` and forwards to quotes@textindustry.com
+- [ ] **M2** — Form backend: `php/send-quote.php` built (PHPMailer, validation, honeypot) and front-end wired up — **paused, awaiting user decision** on how to execution-test it (no local PHP available); not yet marked complete.
 - [ ] **M3** — Brand assets: logo, favicon, Open Graph image in `assets/img/`; wire up `<link rel="icon">` and OG/Twitter meta tags
 - [ ] **M4** — Accessibility pass: keyboard nav on mobile menu/language switcher, focus states, `aria-live` review, color contrast check on gold-on-charcoal accents
 
@@ -23,7 +23,7 @@ Built in small, modular milestones grouped into phases — each milestone checkp
 - [x] **M3.1** — `.gitignore` + local git repo initialized
 - [x] **M3.2** — GitHub remote connected: `https://github.com/vipmontrealca-star/TEXTINDUSTRY.git`; commit identity set to `Textindustry` / `quotes@textindustry.com`; first push done
 - [ ] **M3.3** — HostGator deployment via **FTP/SFTP** (decided over cPanel Git Version Control) — deploy-ready build/zip to be prepared when user is ready; credentials handled outside chat
-- [ ] **M3.4** — Domain/DNS pointed at HostGator hosting, first live deploy verified
+- [ ] **M3.4** — Domain/DNS pointed at HostGator hosting, first live deploy verified — **blocked on:** confirmed via `nslookup`/`curl` on 2026-07-03 that textindustry.com is still fully on GoDaddy: nameservers are `ns75.domaincontrol.com`/`ns76.domaincontrol.com` (GoDaddy defaults), and the domain currently serves GoDaddy's standard parking-page redirect (`→ /lander`). Nothing points at HostGator yet. User needs to either (a) change nameservers at GoDaddy to HostGator's, or (b) keep GoDaddy as nameserver and update the A record to HostGator's server IP (from HostGator cPanel/welcome email) — option (b) is faster to propagate and preserves other existing GoDaddy DNS records (e.g. MX/email) if needed.
 
 ### Phase 4 — Content Expansion (not started, only if requested)
 - [ ] **M5** — Additional pages: About/Team (Norma Naboulsi bio), individual service detail pages
@@ -67,4 +67,22 @@ Each milestone should be scoped, built, verified, and logged below before starti
 - Confirmed commit identity: `Textindustry` / `quotes@textindustry.com` (repo-local git config only, not global).
 - Remote added: `origin` → `https://github.com/vipmontrealca-star/TEXTINDUSTRY.git`
 - HostGator deployment decided: FTP/SFTP upload (not cPanel Git Version Control) — deploy build to be prepared when user is ready to upload; no credentials handled in chat.
+
+### 2026-07-03 — M2: Form backend (in progress, paused)
+**Delivered:**
+- Confirmed with user: HostGator plan supports PHP → chose a PHP mail handler over a separate serverless service.
+- Confirmed with user: domain `textindustry.com` DNS is still at GoDaddy, not yet pointed to HostGator — logged as a blocker on M3.4, does not block M2/M3.3 build work.
+- User explicitly approved vendoring PHPMailer v7.1.1 (LGPL 2.1) after the harness flagged the third-party download for confirmation. Vendored (not Composer, since SSH/Composer access on the HostGator plan is unconfirmed): `php/vendor/PHPMailer/src/{PHPMailer.php, SMTP.php, Exception.php}`, plus `php/vendor/PHPMailer/ATTRIBUTION.txt` noting source/version/license.
+- Built `php/send-quote.php`: validates required fields + email format, whitelists attachment extensions/MIME types (pdf/docx/png/jpg, finfo-checked not just extension), enforces 10MB/file + 25MB total caps, honeypot spam check, sends via PHPMailer using PHP's built-in `mail()` transport (no SMTP credentials needed for now), replies-to the submitter, returns JSON.
+- Updated `contact.html`: form now posts to `php/send-quote.php` instead of `mailto:`; added a hidden honeypot field (`name="website"`, off-screen via new `.form-field--honeypot` CSS, not `display:none`).
+- Updated `js/main.js`: form submission now goes through `fetch()` + `FormData`, handles JSON success/error responses, resets the form and file list on success, disables the submit button while in flight.
+- Added `form.networkError` and `form.genericError` translation keys (EN/FR/AR) in `js/translations.js`.
+
+**Verified (front-end only, in browser preview):** honeypot field confirmed off-screen; form correctly targets `php/send-quote.php`; required-field validation still blocks empty submissions with the correct message; POST request fires correctly with `FormData`; submit button disables during the request.
+
+**Bug found and fixed during testing:** the failure-path fallback message incorrectly reused `form.errorStatus` ("please fill required fields") for *any* non-JSON/failed response, which would have shown a misleading message to real users on a genuine server error. Replaced with a new, distinct `form.genericError` key.
+
+**Not yet verified — blocking item:** `send-quote.php` itself has not been execution-tested. No PHP runtime is available in this environment (`php` and `docker` both absent). Static syntax/logic review only. Asked the user how to proceed (install PHP locally via `winget` to fully test now, vs. defer first real test to after HostGator upload in M3.3) — **user paused here, no decision made yet.** Do not consider M2 complete until this is resolved one way or the other.
+
+**Also worth flagging before go-live (not blocking):** HostGator's default `php.ini` `post_max_size`/`upload_max_filesize` may be lower than the 25MB total this script allows — worth confirming/adjusting via cPanel's MultiPHP INI Editor after deployment. And `mail()` deliverability (landing in spam) should be checked once live; an SMTP-auth fallback using a real HostGator mailbox password is the documented Plan B if so.
 - First commit created and pushed to `main` on GitHub.

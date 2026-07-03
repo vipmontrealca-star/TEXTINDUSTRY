@@ -73,8 +73,10 @@ window.TEXTINDUSTRY_I18N = {
       attachmentsError: "One or more files were rejected: only PDF, DOCX, PNG and JPG up to 10 MB are accepted.",
       privacy: "Your documents are treated as strictly confidential.",
       submit: "Send Request",
-      successStatus: "Thanks — your default email client will open to send this request to quotes@textindustry.com.",
-      errorStatus: "Please fill in all required fields before sending."
+      successStatus: "Thanks — your request has been sent to quotes@textindustry.com. We'll be in touch soon.",
+      errorStatus: "Please fill in all required fields before sending.",
+      networkError: "Could not reach the server. Please email quotes@textindustry.com directly.",
+      genericError: "Something went wrong on our end. Please try again or email quotes@textindustry.com directly."
     },
     lang: { arabic: "Arabic", english: "English", french: "French", other: "Other" }
   },
@@ -149,8 +151,10 @@ window.TEXTINDUSTRY_I18N = {
       attachmentsError: "Un ou plusieurs fichiers ont été refusés : seuls les formats PDF, DOCX, PNG et JPG jusqu'à 10 Mo sont acceptés.",
       privacy: "Vos documents sont traités en toute confidentialité.",
       submit: "Envoyer la demande",
-      successStatus: "Merci — votre client de messagerie par défaut va s'ouvrir pour envoyer cette demande à quotes@textindustry.com.",
-      errorStatus: "Veuillez remplir tous les champs obligatoires avant d'envoyer."
+      successStatus: "Merci — votre demande a été envoyée à quotes@textindustry.com. Nous vous répondrons sous peu.",
+      errorStatus: "Veuillez remplir tous les champs obligatoires avant d'envoyer.",
+      networkError: "Impossible de joindre le serveur. Veuillez écrire directement à quotes@textindustry.com.",
+      genericError: "Une erreur est survenue de notre côté. Veuillez réessayer ou écrire directement à quotes@textindustry.com."
     },
     lang: { arabic: "Arabe", english: "Anglais", french: "Français", other: "Autre" }
   },
@@ -225,8 +229,10 @@ window.TEXTINDUSTRY_I18N = {
       attachmentsError: "تم رفض ملف واحد أو أكثر: يُقبل فقط PDF وDOCX وPNG وJPG حتى 10 ميغابايت.",
       privacy: "تُعامَل مستنداتكم بسرية تامة.",
       submit: "إرسال الطلب",
-      successStatus: "شكرًا — سيُفتح برنامج البريد الإلكتروني الافتراضي لإرسال هذا الطلب إلى quotes@textindustry.com.",
-      errorStatus: "يرجى تعبئة جميع الحقول المطلوبة قبل الإرسال."
+      successStatus: "شكرًا — تم إرسال طلبكم إلى quotes@textindustry.com. سنرد عليكم قريبًا.",
+      errorStatus: "يرجى تعبئة جميع الحقول المطلوبة قبل الإرسال.",
+      networkError: "تعذّر الوصول إلى الخادم. يرجى مراسلتنا مباشرة على quotes@textindustry.com.",
+      genericError: "حدث خطأ من جانبنا. يرجى المحاولة مجددًا أو مراسلتنا مباشرة على quotes@textindustry.com."
     },
     lang: { arabic: "العربية", english: "الإنكليزية", french: "الفرنسية", other: "أخرى" }
   }

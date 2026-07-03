@@ -119,12 +119,20 @@
     });
   }
 
+  function showStatus(status, isError, message) {
+    status.hidden = false;
+    status.classList.toggle("is-error", isError);
+    status.textContent = message;
+  }
+
   function initQuoteForm() {
     var form = document.getElementById("quote-form");
     var status = document.getElementById("form-status");
     if (!form || !status) return;
 
     form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
       var requiredFields = form.querySelectorAll("[required]");
       var allValid = true;
       requiredFields.forEach(function (field) {
@@ -132,20 +140,38 @@
       });
 
       if (!allValid) {
-        e.preventDefault();
-        status.hidden = false;
-        status.classList.add("is-error");
-        status.textContent = t("form.errorStatus") || "Please fill in all required fields before sending.";
+        showStatus(status, true, t("form.errorStatus") || "Please fill in all required fields before sending.");
         return;
       }
 
-      // NOTE: mailto: submission cannot carry binary attachments — the
-      // browser dialog opens with the form fields, and the user is asked
-      // to attach files manually. A backend/API endpoint is required to
-      // submit attachments programmatically; this is a static front-end base.
-      status.hidden = false;
-      status.classList.remove("is-error");
-      status.textContent = t("form.successStatus") || "Thanks — your default email client will open to send this request.";
+      var submitBtn = form.querySelector('button[type="submit"]');
+      if (submitBtn) submitBtn.disabled = true;
+
+      fetch(form.getAttribute("action"), {
+        method: "POST",
+        body: new FormData(form),
+      })
+        .then(function (res) {
+          return res.json().catch(function () { return { ok: false }; }).then(function (data) {
+            return { ok: res.ok && data.ok, message: data.message };
+          });
+        })
+        .then(function (result) {
+          if (result.ok) {
+            showStatus(status, false, result.message || t("form.successStatus") || "Thanks — your request has been sent.");
+            form.reset();
+            var fileList = document.getElementById("file-list");
+            if (fileList) fileList.innerHTML = "";
+          } else {
+            showStatus(status, true, result.message || t("form.genericError") || "Something went wrong. Please try again or email quotes@textindustry.com directly.");
+          }
+        })
+        .catch(function () {
+          showStatus(status, true, t("form.networkError") || "Could not reach the server. Please email quotes@textindustry.com directly.");
+        })
+        .finally(function () {
+          if (submitBtn) submitBtn.disabled = false;
+        });
     });
   }
 
