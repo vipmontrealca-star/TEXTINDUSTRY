@@ -17,7 +17,7 @@ Built in small, modular milestones grouped into phases — each milestone checkp
 ### Phase 2 — Core Functionality (in progress)
 - [ ] **M2** — Form backend: `php/send-quote.php` built (PHPMailer, validation, honeypot) and front-end wired up — **paused, awaiting user decision** on how to execution-test it (no local PHP available); not yet marked complete.
 - [x] **M3a** — Design overhaul + logo (2026-07-03): corporate ink/paper/blue-ink theme replacing the gold/serif look; TEXTINDUSTRY two-tone lockup + ن-inspired mark; favicon wired up
-- [ ] **M3b** — Remaining brand assets: Open Graph image in `assets/img/`; OG/Twitter meta tags
+- [x] **M3b** — Open Graph image (`assets/img/og-image.jpg`, 1200×630) + OG/Twitter meta tags + theme-color on both pages (2026-07-03)
 - [ ] **M4** — Accessibility pass: keyboard nav on mobile menu/language switcher, focus states, `aria-live` review, color contrast check (blue-on-dark accents)
 
 ### Phase 3 — Infrastructure & Version Control (in progress)
@@ -108,3 +108,10 @@ Each milestone should be scoped, built, verified, and logged below before starti
 **Delivered:** redrew `assets/img/mark.svg` and the inline header SVG on both pages to match the reference: an open-diamond bowl (book cover) with a nested inner chevron (pages), a diamond outline above holding a solid diamond dot (the ن dot). Miter joins, butt caps, stroke 3.2 — fully angular. Same rounded ink-blue tile and white glyph retained.
 
 **Verified (browser preview, DOM inspection):** all four glyph elements render on both pages at 36×36 with correct white-on-blue colors; standalone mark.svg serves correctly (used as favicon); no console errors. Screenshot tool remained broken this session (times out; all other preview tools fine), so verification is computed-style/DOM-based.
+
+### 2026-07-03 — M3b: OG image + social meta tags
+**Delivered:**
+- `assets/img/og-image.jpg` (1200×630, 38KB JPEG): brand card with the ن mark tile, TEXT/INDUSTRY lockup, eyebrow line, tagline and "Beirut, Lebanon · EN · FR · AR". Rendered on an HTML canvas in the preview browser with the real Manrope font, so it exactly matches the site brand (no local design tooling exists in this environment).
+- OG/Twitter meta tags + `theme-color` (#1d4ed8) on both pages; `og:image` points at the absolute production URL `https://textindustry.com/assets/img/og-image.jpg` (will only resolve once the site is live on the domain — fine for launch, untestable before it).
+- Transfer pipeline note: canvas → base64 → POSTed to a one-shot local Node receiver (scratchpad) → decoded to JPEG. SHA-256 verified end-to-end (browser hash = received hash). Manual chunk copying was attempted first and failed hash verification — do not hand-copy binary data between browser and disk; use the upload-server approach if this ever needs redoing.
+- Visual verification: the decoded JPEG was viewed directly (Read tool renders images) — confirmed mark geometry, lockup, and layout; first render had the tagline overflowing the right edge, fixed by shortening it and re-rendering.
