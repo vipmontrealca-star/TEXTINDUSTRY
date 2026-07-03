@@ -1,0 +1,36 @@
+name: Deploy to HostGator
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+jobs:
+  ftp-deploy:
+    name: FTP deploy to HostGator
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy via FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
+        with:
+          server: ${{ secrets.HOSTGATOR_FTP_SERVER }}
+          username: ${{ secrets.HOSTGATOR_FTP_USERNAME }}
+          password: ${{ secrets.HOSTGATOR_FTP_PASSWORD }}
+          server-dir: ${{ secrets.HOSTGATOR_FTP_SERVER_DIR }}
+          protocol: ftps
+          # If FTPS fails to connect on your HostGator plan, change this
+          # line to "ftp" or "sftp" (SFTP also needs port 22 in server dir
+          # settings) — see cPanel > FTP Accounts for what your plan supports.
+          exclude: |
+            **/.git*
+            **/.git*/**
+            .github/**
+            deploy/**
+            textindustry-deploy-*.zip
+            PROJECT_LOG.md
+            README.md
+            NEEDED_FROM_CLIENT.md
+            .claude/**

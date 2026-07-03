@@ -24,7 +24,8 @@ Built in small, modular milestones grouped into phases — each milestone checkp
 - [x] **M3.1** — `.gitignore` + local git repo initialized
 - [x] **M3.2** — GitHub remote connected: `https://github.com/vipmontrealca-star/TEXTINDUSTRY.git`; commit identity set to `Textindustry` / `quotes@textindustry.com`; first push done
 - [x] **M3.3a** — Deploy package built: `textindustry-deploy-2026-07-03.zip` at project root, contents at archive root (extracts directly into `public_html`, no wrapper folder). Contains only production files (`index.html`, `contact.html`, `css/`, `js/`, `assets/`, `php/` incl. vendored PHPMailer) — repo/project-management files (`PROJECT_LOG.md`, `README.md`, `NEEDED_FROM_CLIENT.md`, `.claude/`, `.gitignore`) intentionally excluded. `deploy/` (loose folder) and the zip are both gitignored — build artifacts, not source.
-- [ ] **M3.3b** — User uploads the zip to HostGator and extracts it — not yet done (upload/FTP action is on the user's side, no credentials handled in chat)
+- [x] **M3.3b (superseded)** — Manual zip upload was the plan, but user opted into automated GitHub Actions deploy instead (see M3.5). Manual zip still available as a one-off/fallback if needed.
+- [ ] **M3.5** — GitHub Actions auto-deploy: workflow committed (`.github/workflows/deploy.yml`), pushes to `main` will FTPS-upload to HostGator automatically. **Blocked on:** user adding 4 repo secrets on github.com (`HOSTGATOR_FTP_SERVER`, `HOSTGATOR_FTP_USERNAME`, `HOSTGATOR_FTP_PASSWORD`, `HOSTGATOR_FTP_SERVER_DIR`) — not something I can or should do since it requires their HostGator FTP credentials. First run will happen automatically on next push to main, or can be triggered manually via Actions tab (workflow_dispatch) once secrets exist.
 - [ ] **M3.4** — Domain/DNS pointed at HostGator hosting, first live deploy verified — **blocked on:** confirmed via `nslookup`/`curl` on 2026-07-03 that textindustry.com is still fully on GoDaddy: nameservers are `ns75.domaincontrol.com`/`ns76.domaincontrol.com` (GoDaddy defaults), and the domain currently serves GoDaddy's standard parking-page redirect (`→ /lander`). Nothing points at HostGator yet. User needs to either (a) change nameservers at GoDaddy to HostGator's, or (b) keep GoDaddy as nameserver and update the A record to HostGator's server IP (from HostGator cPanel/welcome email) — option (b) is faster to propagate and preserves other existing GoDaddy DNS records (e.g. MX/email) if needed.
 
 ### Phase 4 — Content Expansion (not started, only if requested)
@@ -123,3 +124,20 @@ Each milestone should be scoped, built, verified, and logged below before starti
 **Not included on purpose:** `PROJECT_LOG.md`, `README.md`, `NEEDED_FROM_CLIENT.md`, `.gitignore`, `.claude/` — internal project-management files with no reason to be publicly reachable on the live domain.
 
 **Still open:** the user needs to actually upload/extract this on HostGator (M3.3b) — that's a manual action on their end since no FTP/cPanel credentials are handled in this session. Reminder still pending from the M2 log entry: check HostGator's `post_max_size`/`upload_max_filesize` via cPanel's MultiPHP INI Editor after upload, since the form allows up to 25MB total attachments.
+
+### 2026-07-03 — M3.5: Automated GitHub Actions deploy
+**Client direction:** wants push-to-deploy from GitHub instead of manual zip uploads.
+
+**Decision process:** presented three options (GitHub Actions automated FTP, cPanel Git Version Control pull-based, or keep the manual zip workflow) — user chose GitHub Actions. Then, before wiring in a third-party GitHub Action that would run with FTP credential access, asked for explicit sign-off on the specific dependency (`SamKirkland/FTP-Deploy-Action`, MIT license, ~1.8k stars) — same standard applied as the PHPMailer vendoring decision earlier. User approved.
+
+**Delivered:** `.github/workflows/deploy.yml` — triggers on push to `main` (plus manual `workflow_dispatch`), checks out the repo, and runs `SamKirkland/FTP-Deploy-Action@v4.4.0` (pinned, not floating on a tag) over FTPS. Excludes `.git*`, `.github/`, `deploy/`, the zip, and the project-management markdown files (`PROJECT_LOG.md`, `README.md`, `NEEDED_FROM_CLIENT.md`, `.claude/`) from what gets uploaded — mirrors exactly what the manual deploy zip contained.
+
+**Blocking, on the user's side (cannot be done from this session):** four GitHub repo secrets need to be added at github.com → repo → Settings → Secrets and variables → Actions:
+- `HOSTGATOR_FTP_SERVER` — FTP host/IP from HostGator cPanel → FTP Accounts
+- `HOSTGATOR_FTP_USERNAME` — FTP account username
+- `HOSTGATOR_FTP_PASSWORD` — FTP account password
+- `HOSTGATOR_FTP_SERVER_DIR` — target path, typically `/public_html/` (or an addon-domain subfolder)
+
+Once those exist, the workflow runs automatically on the next push to `main`, or can be triggered immediately via the repo's **Actions** tab → "Deploy to HostGator" → **Run workflow**. If FTPS fails to connect (some HostGator configs), the `protocol: ftps` line in the workflow can be changed to `ftp` or `sftp`.
+
+**Superseded:** M3.3b (manual zip upload) is no longer the primary path — the zip built in M3.3a still works as a one-off fallback if ever needed, but the intended ongoing workflow is now push-to-main → auto-deploy.
