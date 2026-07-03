@@ -16,7 +16,7 @@ Built in small, modular milestones grouped into phases — each milestone checkp
 
 ### Phase 2 — Core Functionality (in progress)
 - [ ] **M2** — Form backend: replace `mailto:` placeholder with a real endpoint that accepts `multipart/form-data` and forwards to quotes@textindustry.com
-- [ ] **M3** — Brand assets: logo, favicon, Open Graph image in `assets/img/`; wire up `<link rel="icon">` and OG/Twitter meta tags
+- [x] **M3** — Brand assets: logo mark, favicon, Open Graph image in `assets/img/`; wired up `<link rel="icon">` and OG/Twitter meta tags
 - [ ] **M4** — Accessibility pass: keyboard nav on mobile menu/language switcher, focus states, `aria-live` review, color contrast check on gold-on-charcoal accents
 
 ### Phase 3 — Infrastructure & Version Control (in progress)
@@ -62,6 +62,18 @@ Each milestone should be scoped, built, verified, and logged below before starti
 - Added `.gitignore` (node_modules, OS cruft, .env files).
 - Set local (repo-scoped, not global) git identity as a placeholder — **needs user confirmation/correction**: `user.name "Sam"`, `user.email "sam@vipmontreal.ca"`.
 - No commits yet — first commit pending GitHub remote decision (see M3.2 in backlog).
+
+### 2026-07-03 — M3: Brand assets (logo, favicon, OG image)
+**Delivered:**
+- `assets/img/logo-mark.svg` — a stacked-chevron/diamond icon (gold gradient), designed off a reference mark the client liked, redrawn as an original vector for header/footer use.
+- `assets/img/favicon.svg` + rasterized fallbacks (`favicon-32.png`, `favicon-16.png`, `apple-touch-icon.png`) — same mark on a rounded charcoal tile so it stays legible in any browser-tab theme.
+- `assets/img/og-image.png` (1200×630) — dark editorial card with the logo lockup + tagline, for social/link previews.
+- Replaced the placeholder "T" circle in the header/footer with the real logo mark on both `index.html` and `contact.html`; added favicon links and Open Graph/Twitter meta tags to both pages' `<head>`.
+- Kept the existing charcoal/gold/paper palette — logo uses the site's own gold gradient, no new theme colors introduced.
+
+**Verified:** Logo renders correctly in header (light) and footer (dark); RTL (Arabic) layout still mirrors the nav correctly with the icon in place; favicon legible at 16px/32px/180px; no new console errors.
+
+**Not done (out of scope for this pass):** No web app manifest / large PWA icon set (192/512) since nothing currently requires it — can be added if a manifest is introduced later.
 
 ### 2026-07-03 — M3.2: Connected to GitHub
 - Confirmed commit identity: `Textindustry` / `quotes@textindustry.com` (repo-local git config only, not global).

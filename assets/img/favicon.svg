@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Textindustry">
+  <defs>
+    <linearGradient id="tiGoldGradFav" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e6c98d"/>
+      <stop offset="1" stop-color="#b58a3d"/>
+    </linearGradient>
+  </defs>
+  <rect width="100" height="100" rx="24" fill="#23262b"/>
+  <path d="M42 21 L50 13 L58 21 L50 29 Z" fill="url(#tiGoldGradFav)"/>
+  <path d="M32 36 L50 51 L68 36" fill="none" stroke="url(#tiGoldGradFav)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M25 63 L50 82 L75 63" fill="none" stroke="url(#tiGoldGradFav)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
