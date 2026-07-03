@@ -23,6 +23,7 @@
   --font-body: "Inter", "Tajawal", sans-serif;
   --font-arabic-display: "Amiri", "Cormorant Garamond", serif;
   --font-arabic-body: "Tajawal", "Inter", sans-serif;
+  --font-logo: "Poppins", "Inter", sans-serif;
 
   --container-width: 1180px;
   --radius: 6px;
@@ -53,8 +54,7 @@ html[dir="rtl"] body {
 }
 html[dir="rtl"] h1,
 html[dir="rtl"] h2,
-html[dir="rtl"] h3,
-html[dir="rtl"] .brand-name {
+html[dir="rtl"] h3 {
   font-family: var(--font-arabic-display);
 }
 
@@ -107,25 +107,41 @@ h1, h2, h3 {
 .brand {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 .brand-mark {
   display: inline-block;
   width: 34px; height: 34px;
   flex-shrink: 0;
 }
-.brand-name {
+.brand-wordmark {
   display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-family: var(--font-display);
-  font-size: 1.4rem;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  color: var(--color-charcoal);
+  font-family: var(--font-logo);
+  text-transform: uppercase;
+  line-height: 1;
 }
-.brand-dot { color: var(--color-gold); }
+.brand-word {
+  padding: 8px 12px;
+  font-size: 1.05rem;
+}
+.brand-word--text {
+  background: var(--color-charcoal);
+  color: var(--color-paper);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  border-start-start-radius: var(--radius);
+  border-end-start-radius: var(--radius);
+}
+.brand-word--industry {
+  background: var(--color-gold);
+  color: var(--color-charcoal-2);
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  border-start-end-radius: var(--radius);
+  border-end-end-radius: var(--radius);
+}
 .footer-brand .brand-mark { width: 28px; height: 28px; }
+.footer-brand .brand-word { font-size: 0.9rem; padding: 6px 10px; }
 
 .main-nav {
   display: flex;
@@ -469,7 +485,6 @@ h1, h2, h3 {
   gap: 32px;
   margin-bottom: 36px;
 }
-.footer-brand .brand-name { color: var(--color-paper); }
 .footer-brand p { color: rgba(250,248,244,0.6); margin-top: 8px; font-size: 0.9rem; }
 .site-footer h3 { color: var(--color-gold-light); font-size: 1rem; margin-bottom: 14px; }
 .footer-links { display: flex; flex-direction: column; gap: 10px; }

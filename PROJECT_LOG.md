@@ -75,6 +75,16 @@ Each milestone should be scoped, built, verified, and logged below before starti
 
 **Not done (out of scope for this pass):** No web app manifest / large PWA icon set (192/512) since nothing currently requires it — can be added if a manifest is introduced later.
 
+### 2026-07-03 — M3 revision: Logo redesign (client feedback)
+**Delivered:**
+- Redrew the icon mark: a bowl-and-dot glyph evoking the Arabic letter ن (noon) — a bilingual nod fitting a Beirut-based EN/FR/AR agency — replacing the earlier stacked-chevron/diamond concept.
+- Rebuilt the wordmark as an all-caps, two-tone badge lockup: "TEXT" (bold, charcoal badge) + "INDUSTRY" (light weight, gold badge), set in Poppins (rounded geometric sans) instead of the serif display font, per client direction ("no Times New Roman style").
+- Wordmark is forced `dir="ltr"` so it never mirrors on the Arabic version of the site — standard practice for logotypes on RTL pages.
+- Regenerated favicon/apple-touch-icon and the Open Graph image to match.
+- Still no new theme colors — badges use the existing charcoal/gold palette.
+
+**Verified:** New lockup checked in header (light) and footer (dark) on both pages, and in Arabic/RTL — wordmark stays LTR and un-mirrored while the rest of the nav flips correctly; no new console errors.
+
 ### 2026-07-03 — M3.2: Connected to GitHub
 - Confirmed commit identity: `Textindustry` / `quotes@textindustry.com` (repo-local git config only, not global).
 - Remote added: `origin` → `https://github.com/vipmontrealca-star/TEXTINDUSTRY.git`
