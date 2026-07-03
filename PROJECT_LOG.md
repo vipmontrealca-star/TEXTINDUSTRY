@@ -16,8 +16,9 @@ Built in small, modular milestones grouped into phases — each milestone checkp
 
 ### Phase 2 — Core Functionality (in progress)
 - [ ] **M2** — Form backend: `php/send-quote.php` built (PHPMailer, validation, honeypot) and front-end wired up — **paused, awaiting user decision** on how to execution-test it (no local PHP available); not yet marked complete.
-- [ ] **M3** — Brand assets: logo, favicon, Open Graph image in `assets/img/`; wire up `<link rel="icon">` and OG/Twitter meta tags
-- [ ] **M4** — Accessibility pass: keyboard nav on mobile menu/language switcher, focus states, `aria-live` review, color contrast check on gold-on-charcoal accents
+- [x] **M3a** — Design overhaul + logo (2026-07-03): corporate ink/paper/blue-ink theme replacing the gold/serif look; TEXTINDUSTRY two-tone lockup + ن-inspired mark; favicon wired up
+- [ ] **M3b** — Remaining brand assets: Open Graph image in `assets/img/`; OG/Twitter meta tags
+- [ ] **M4** — Accessibility pass: keyboard nav on mobile menu/language switcher, focus states, `aria-live` review, color contrast check (blue-on-dark accents)
 
 ### Phase 3 — Infrastructure & Version Control (in progress)
 - [x] **M3.1** — `.gitignore` + local git repo initialized
@@ -67,6 +68,7 @@ Each milestone should be scoped, built, verified, and logged below before starti
 - Confirmed commit identity: `Textindustry` / `quotes@textindustry.com` (repo-local git config only, not global).
 - Remote added: `origin` → `https://github.com/vipmontrealca-star/TEXTINDUSTRY.git`
 - HostGator deployment decided: FTP/SFTP upload (not cPanel Git Version Control) — deploy build to be prepared when user is ready to upload; no credentials handled in chat.
+- First commit created and pushed to `main` on GitHub.
 
 ### 2026-07-03 — M2: Form backend (in progress, paused)
 **Delivered:**
@@ -85,4 +87,17 @@ Each milestone should be scoped, built, verified, and logged below before starti
 **Not yet verified — blocking item:** `send-quote.php` itself has not been execution-tested. No PHP runtime is available in this environment (`php` and `docker` both absent). Static syntax/logic review only. Asked the user how to proceed (install PHP locally via `winget` to fully test now, vs. defer first real test to after HostGator upload in M3.3) — **user paused here, no decision made yet.** Do not consider M2 complete until this is resolved one way or the other.
 
 **Also worth flagging before go-live (not blocking):** HostGator's default `php.ini` `post_max_size`/`upload_max_filesize` may be lower than the 25MB total this script allows — worth confirming/adjusting via cPanel's MultiPHP INI Editor after deployment. And `mail()` deliverability (landing in spam) should be checked once live; an SMTP-auth fallback using a real HostGator mailbox password is the documented Plan B if so.
-- First commit created and pushed to `main` on GitHub.
+
+### 2026-07-03 — M3a: Design overhaul + logo (corporate ink/paper theme)
+**Client direction:** drop the gold/serif "editorial" look entirely. Wanted: corporate, lots of paper-white and ink-black, blue ink acceptable; logo all-caps with a rounded font (explicitly no Times/serif style), "TEXT" bold + "INDUSTRY" fine/light, each word on a different colored background rectangle; a design mark with resemblance to the Arabic letter ن; modern, corporate-level.
+
+**Delivered:**
+- New logo mark `assets/img/mark.svg`: abstracted ن (open bowl + dot above) in white on a rounded ink-blue tile; also wired as the favicon on both pages.
+- Wordmark lockup in header + footer of both pages: `TEXT` (weight 800, white on ink-blue rectangle) + `INDUSTRY` (weight 300, wide tracking, white on ink-black rectangle), rounded outer corners via logical border-radius properties so the lockup mirrors correctly in RTL. Footer variant flips INDUSTRY to white-on-dark-readable (white bg, ink text).
+- Full palette swap in `css/styles.css`: paper `#ffffff`/`#f4f6fa`, ink `#0c111b`/`#10151d`, blue-ink accent `#1d4ed8` (dark `#16389c`, light `#93b8f8` for dark backgrounds). All gold references gone.
+- Typography swap: Cormorant Garamond (serif) and Amiri dropped; Manrope (rounded geometric sans, 300–800) for Latin, Tajawal for Arabic across display and body. Headings now weight 800 with tight tracking.
+- Component restyling: blue primary buttons/nav CTA, featured service card now ink-blue, blue focus rings and form accents, `--radius` up to 12px for the softer corporate look. Renamed `btn-gold`→`btn-light` and `aside-card--gold`→`aside-card--dark` in HTML+CSS.
+
+**Verified (browser preview, computed styles + accessibility snapshot):** lockup renders flush (no gap) with correct colors/weights per side; ن mark renders 36×36 with blue tile; Manrope active LTR, Tajawal active RTL; RTL flips the lockup order and corner rounding correctly; dark aside card and blue contact-email confirmed on contact page; no console errors. Note: the preview screenshot tool timed out repeatedly this session (renderer responded fine to all other tools), so verification proof is computed-style based rather than visual screenshots.
+
+**Still open under M3b:** Open Graph image + OG/Twitter meta tags. `NEEDED_FROM_CLIENT.md` logo request now partially resolved — a logo now exists; client feedback on it welcome, and any official brand assets can replace/refine it.

@@ -10,8 +10,9 @@
   <!-- Fonts: Latin display/body + Arabic pairing -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&family=Tajawal:wght@400;500;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700;800&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet" />
 
+  <link rel="icon" type="image/svg+xml" href="assets/img/mark.svg" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
@@ -19,9 +20,15 @@
   <!-- ===================== HEADER ===================== -->
   <header class="site-header" id="top">
     <div class="container header-inner">
-      <a href="index.html" class="brand" aria-label="Textindustry — home">
-        <span class="brand-mark">T</span>
-        <span class="brand-name">Textindustry<span class="brand-dot">.</span></span>
+      <a href="index.html" class="brand" aria-label="TEXTINDUSTRY — home">
+        <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+          <rect class="brand-mark-tile" width="48" height="48" rx="12"/>
+          <circle class="brand-mark-glyph" cx="24" cy="13.5" r="3.6"/>
+          <path class="brand-mark-stroke" d="M12.5 20.5 v2.5 a11.5 11.5 0 0 0 23 0 v-2.5" fill="none" stroke-width="4.4" stroke-linecap="round"/>
+        </svg>
+        <span class="brand-lockup">
+          <span class="brand-word brand-word--text">TEXT</span><span class="brand-word brand-word--industry">INDUSTRY</span>
+        </span>
       </a>
 
       <nav class="main-nav" id="main-nav" aria-label="Main navigation">
@@ -116,7 +123,7 @@
           <h2 class="section-title section-title--light" data-i18n="sworn.title">A signature that carries legal weight</h2>
           <p data-i18n="sworn.body1">Norma Naboulsi is a Sworn Translator in Lebanon, authorized to certify translations with an official stamp. Documents bearing this seal are accepted by courts, notaries, ministries, embassies and international institutions.</p>
           <p data-i18n="sworn.body2">That means your contracts, diplomas, judgments and civil documents don't just read correctly — they are legally valid, without an intermediary and without delay.</p>
-          <a href="contact.html" class="btn btn-gold" data-i18n="sworn.cta">Certify a Document</a>
+          <a href="contact.html" class="btn btn-light" data-i18n="sworn.cta">Certify a Document</a>
         </div>
         <ul class="sworn-points">
           <li>
@@ -149,7 +156,9 @@
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="footer-brand">
-        <p class="brand-name">Textindustry<span class="brand-dot">.</span></p>
+        <span class="brand-lockup">
+          <span class="brand-word brand-word--text">TEXT</span><span class="brand-word brand-word--industry">INDUSTRY</span>
+        </span>
         <p data-i18n="footer.tagline">Translation · Localization · Editorial — Beirut, Lebanon.</p>
       </div>
       <div>

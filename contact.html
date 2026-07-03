@@ -9,8 +9,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&family=Tajawal:wght@400;500;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700;800&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet" />
 
+  <link rel="icon" type="image/svg+xml" href="assets/img/mark.svg" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
@@ -18,9 +19,15 @@
   <!-- ===================== HEADER ===================== -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="brand" aria-label="Textindustry — home">
-        <span class="brand-mark">T</span>
-        <span class="brand-name">Textindustry<span class="brand-dot">.</span></span>
+      <a href="index.html" class="brand" aria-label="TEXTINDUSTRY — home">
+        <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+          <rect class="brand-mark-tile" width="48" height="48" rx="12"/>
+          <circle class="brand-mark-glyph" cx="24" cy="13.5" r="3.6"/>
+          <path class="brand-mark-stroke" d="M12.5 20.5 v2.5 a11.5 11.5 0 0 0 23 0 v-2.5" fill="none" stroke-width="4.4" stroke-linecap="round"/>
+        </svg>
+        <span class="brand-lockup">
+          <span class="brand-word brand-word--text">TEXT</span><span class="brand-word brand-word--industry">INDUSTRY</span>
+        </span>
       </a>
 
       <nav class="main-nav" id="main-nav" aria-label="Main navigation">
@@ -165,7 +172,7 @@
             <p><a class="contact-email" href="mailto:quotes@textindustry.com">quotes@textindustry.com</a></p>
             <p data-i18n="footer.location">Beirut, Lebanon</p>
           </div>
-          <div class="aside-card aside-card--gold">
+          <div class="aside-card aside-card--dark">
             <h2 data-i18n="contact.swornTitle">Need a certified translation?</h2>
             <p data-i18n="contact.swornBody">Mention "sworn stamp" in your project details and attach the original document — certified translations are signed and sealed by Norma Naboulsi, Sworn Translator in Lebanon.</p>
           </div>
@@ -179,7 +186,9 @@
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="footer-brand">
-        <p class="brand-name">Textindustry<span class="brand-dot">.</span></p>
+        <span class="brand-lockup">
+          <span class="brand-word brand-word--text">TEXT</span><span class="brand-word brand-word--industry">INDUSTRY</span>
+        </span>
         <p data-i18n="footer.tagline">Translation · Localization · Editorial — Beirut, Lebanon.</p>
       </div>
       <div>
