@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Webmail — Textindustry</title>
+  <!-- Internal utility page, not customer-facing content: keep it out of search results and the sitemap. -->
+  <meta name="robots" content="noindex, nofollow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="icon" type="image/svg+xml" href="assets/img/mark.svg" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* Scoped to this page only — a minimal centered gateway card, not a full site page. */
+    body.webmail-gateway {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--color-paper-alt);
+      padding: 24px;
+    }
+    .webmail-card {
+      max-width: 380px;
+      width: 100%;
+      background: var(--color-white);
+      border: 1px solid var(--color-line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-soft);
+      padding: 40px 32px;
+      text-align: center;
+    }
+    .webmail-card .brand { justify-content: center; margin-bottom: 28px; }
+    .webmail-card h1 {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--color-charcoal-2);
+      margin: 0 0 10px;
+    }
+    .webmail-card p {
+      color: var(--color-muted);
+      font-size: 0.92rem;
+      margin: 0 0 28px;
+    }
+    .webmail-back {
+      display: block;
+      margin-top: 18px;
+      font-size: 0.85rem;
+      color: var(--color-muted);
+    }
+    .webmail-back:hover { color: var(--color-accent); }
+  </style>
+</head>
+<body class="webmail-gateway">
+
+  <div class="webmail-card">
+    <a href="index.html" class="brand" aria-label="TEXTINDUSTRY — home">
+      <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+        <rect class="brand-mark-tile" width="48" height="48" rx="12"/>
+        <path class="brand-mark-stroke" d="M19 20 L10 29 L24 43 L38 29 L29 20" fill="none" stroke-width="3.2" stroke-linejoin="miter"/>
+        <path class="brand-mark-stroke" d="M16 28 L24 36 L32 28" fill="none" stroke-width="3.2" stroke-linejoin="miter"/>
+        <path class="brand-mark-stroke" d="M24 5.5 L30.5 12 L24 18.5 L17.5 12 Z" fill="none" stroke-width="3.2" stroke-linejoin="miter"/>
+        <path class="brand-mark-glyph" d="M24 9.6 L26.4 12 L24 14.4 L21.6 12 Z"/>
+      </svg>
+      <span class="brand-lockup">
+        <span class="brand-word brand-word--text">TEXT</span><span class="brand-word brand-word--industry">INDUSTRY</span>
+      </span>
+    </a>
+
+    <h1>Webmail Access</h1>
+    <p>Sign in to your @textindustry.com email account.</p>
+
+    <a href="https://webmail.textindustry.com/" class="btn btn-primary btn-wide">Log in to Webmail</a>
+
+    <a href="index.html" class="webmail-back">← Back to textindustry.com</a>
+  </div>
+
+</body>
+</html>

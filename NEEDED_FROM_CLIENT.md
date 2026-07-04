@@ -24,9 +24,11 @@ Live checklist of information/assets needed from the site owner to keep moving. 
 
 ## Phase 5 — SEO & Launch Readiness
 - [x] Multilingual URL strategy — decided: subdomains (`fr.textindustry.com`, `ar.textindustry.com`), in progress as of 2026-07-03 (see PROJECT_LOG.md M6b/M6c).
-- [ ] Google Search Console / Google Analytics — do you want these wired in, and do you already have accounts for the domain?
+- [x] Google Search Console / Analytics — **decided:** yes, include both. Reporting method decided too: just use Google's own dashboards directly (analytics.google.com, search.google.com/search-console) — no custom in-site reporting page, to avoid a real engineering lift (API integration, auth, ongoing maintenance) for a site this size.
+  - [ ] **Still needed from you to actually wire this in:** (1) create a Search Console property for textindustry.com and send the verification snippet it gives you (usually an HTML meta tag or a DNS record), (2) create an Analytics property and send the Measurement ID (looks like `G-XXXXXXXXXX`).
 - [ ] Any required legal footer text (business registration number, VAT/TVA if applicable in Lebanon) for compliance.
 - [ ] Social media profile links (Instagram, LinkedIn, etc.) for the footer, if any exist.
+- [ ] Whether you have WHM access (separate admin panel from cPanel) on the HostGator account — check the original signup email for "WHM"/"reseller," or try `https://textindustry.com:2087/`. Only relevant if you want the actual webmail login page (Roundcube) re-skinned with the Textindustry logo natively — otherwise the branded gateway page at `webmail.html` covers the branding need without it.
 
 ## General / ongoing
 - [ ] Final sign-off on homepage/contact copy as currently written (all EN/FR/AR strings live in `js/translations.js`) — flag anything that reads off, especially the Arabic and French translations, which should get a native-speaker review before launch.

@@ -234,3 +234,18 @@ Site was returning 403 despite "successful" GitHub Actions runs because the FTP 
 **Verified:** computed `color` on `.service-card--featured p` now reports `rgba(255, 255, 255, 0.82)` (was incorrectly inheriting the gray `--color-muted`); heading and the "SWORN & CERTIFIED" tag pill both confirmed still white/readable. No console errors.
 
 **Lesson worth remembering:** two same-specificity selectors targeting the same element — whichever is declared later in the file wins, regardless of which one "sounds" more specific (`--featured p` reads like it should win over plain `p`, but CSS doesn't care about semantic specificity, only selector structure + source order). Worth double-checking rule order whenever a themed/variant override doesn't seem to take effect.
+
+### 2026-07-03 — Webmail access diagnosed; branded gateway page built
+**Client question:** tried `mail.textindustry.com` expecting webmail access — it didn't work.
+
+**Diagnosed directly (not guessed):** `mail.textindustry.com` resolves in DNS, but serves **byte-for-byte identical content** to the main homepage (confirmed via matching SHA-256 hashes) — it's just falling through to the default vhost, not a real webmail portal. The actual working webmail URL, confirmed via `curl` (found Roundcube session cookies in the response — `roundcube_sessid`, `roundcube_cookies`), is **`https://webmail.textindustry.com/`** — already works today, clean URL, no port number, no setup needed. This was news to the client and to this log.
+
+**Client ask:** a clean URL (✅ already solved above) plus the Textindustry logo shown somewhere in the webmail experience.
+
+**Constraint surfaced:** natively re-skinning the actual Roundcube login page requires WHM-level server access, which most standard shared-hosting cPanel accounts (this one included, most likely — unconfirmed, added to `NEEDED_FROM_CLIENT.md`) don't have.
+
+**Delivered instead:** `webmail.html` — a small standalone branded gateway page (not part of the main site nav/i18n system, since it's an internal utility, not customer-facing content): Textindustry logo lockup, a "Log in to Webmail" button through to `https://webmail.textindustry.com/`, and a link back to the homepage. Marked `noindex, nofollow` and deliberately left out of `sitemap.xml` and the nav — this is a bookmark-style utility page, not content. No new security exposure — it just links to the same publicly-reachable login page that was already directly accessible.
+
+**Verified:** logo mark renders 36×36, wordmark pieces both 36px tall (same height-match fix as the main site), button correctly points at `https://webmail.textindustry.com/`, `noindex` meta tag present, no console errors.
+
+**Still open:** whether the account actually has WHM access (client wasn't sure) — if it does, the real Roundcube login page could additionally be re-skinned with the logo as a bonus. Added to `NEEDED_FROM_CLIENT.md`.
