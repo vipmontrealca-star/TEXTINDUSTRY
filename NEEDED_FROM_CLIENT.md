@@ -15,15 +15,15 @@ Live checklist of information/assets needed from the site owner to keep moving. 
 - [x] Logo/mark — custom-designed per client direction (geometric ن-inspired mark + TEXT/INDUSTRY two-tone lockup), doubling as favicon. Done 2026-07-03.
 - [x] Palette — corporate ink/paper/blue-ink theme (#1d4ed8 accent, #0c111b ink, white paper), Manrope + Tajawal. Done 2026-07-03, superseding the original gold/serif draft.
 - [x] Section imagery — Beirut skyline (hero), wax seal (Sworn Advantage), desk/paper (contact page), all free-license (Unsplash License, no attribution required), verified content-clean before use. Done 2026-07-03.
-- [ ] A photo or headshot of Norma Naboulsi, if she should be pictured on the site (e.g. for a future About section) — still open, this one has to come from the client.
+- [x] A photo of Norma Naboulsi — received 2026-07-03 (`assets/img/Norma_Naboulsi.png`, on disk, not yet used anywhere on the site per client instruction — "don't use it for now"). Ready whenever there's a go-ahead to add it (About page is the natural spot).
 
-## Phase 4 — Content Expansion (only relevant if these pages get requested)
-- [ ] Norma Naboulsi bio / credentials text for an About page, if wanted.
+## Phase 4 — Content Expansion
+- [x] About Us page — built 2026-07-03 (`about.html`, EN/FR/AR). Bio content deliberately kept to facts already established elsewhere on the site (her role as Sworn Translator, what that credential means, languages/region served) — **no specific biographical details were invented** (no education, career history, years of experience, or past employers, since none of that was provided). If a deeper personal bio is wanted, that content still needs to come from the client.
 - [ ] Any past press releases, editorial samples, or case studies that could be used as portfolio proof points.
 - [ ] Client testimonials or logos, if available and permitted for use.
 
 ## Phase 5 — SEO & Launch Readiness
-- [ ] Decision on multilingual URL strategy: keep the current client-side language switch (single URL, no SEO benefit per language), or move to per-language URLs (e.g. `/fr/`, `/ar/` subfolders or `fr.textindustry.com` subdomains) for better search visibility. This is a real trade-off worth a short discussion when we get there — it affects hosting structure.
+- [x] Multilingual URL strategy — decided: subdomains (`fr.textindustry.com`, `ar.textindustry.com`), in progress as of 2026-07-03 (see PROJECT_LOG.md M6b/M6c).
 - [ ] Google Search Console / Google Analytics — do you want these wired in, and do you already have accounts for the domain?
 - [ ] Any required legal footer text (business registration number, VAT/TVA if applicable in Lebanon) for compliance.
 - [ ] Social media profile links (Instagram, LinkedIn, etc.) for the footer, if any exist.

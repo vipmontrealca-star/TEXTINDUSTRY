@@ -7,3 +7,7 @@ Thumbs.db
 .claude/settings.local.json
 deploy/
 textindustry-deploy-*.zip
+
+# Not yet approved for public use — see NEEDED_FROM_CLIENT.md / PROJECT_LOG.md M5c.
+# Keep out of git entirely so the auto-deploy pipeline never publishes it.
+assets/img/Norma_Naboulsi.png

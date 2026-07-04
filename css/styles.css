@@ -328,6 +328,13 @@ h1, h2, h3 {
 }
 .service-card--featured .service-tag { background: rgba(255,255,255,0.16); color: var(--color-white); }
 
+/* ===================== FOUNDER (about page) ===================== */
+.founder { background: var(--color-paper-alt); padding-block: 72px; }
+.founder-inner { max-width: 720px; }
+.founder-inner .section-title { margin-bottom: 20px; }
+.founder-inner p { color: var(--color-muted); margin: 0 0 16px; font-size: 1.02rem; }
+.founder-inner p:last-child { margin-bottom: 0; }
+
 /* ===================== SWORN ADVANTAGE ===================== */
 /* Wax seal photo (assets/img/sworn-seal.jpg, Unsplash License, Raymond
    Petrik) — already-dark section, so only a scrim is needed, no text

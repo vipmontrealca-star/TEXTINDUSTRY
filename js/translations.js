@@ -9,10 +9,12 @@ window.TEXTINDUSTRY_I18N = {
       homeTitle: "Textindustry — Translation & Localization, Beirut",
       homeDescription: "Textindustry is a Beirut-based translation and localization agency serving the MENA region. Sworn legal translation, localization, press releases and creative editorial in English, French and Arabic.",
       contactTitle: "Request a Quote — Textindustry",
-      contactDescription: "Request a translation or localization quote from Textindustry. Attach your documents and receive a tailored estimate at quotes@textindustry.com."
+      contactDescription: "Request a translation or localization quote from Textindustry. Attach your documents and receive a tailored estimate at quotes@textindustry.com.",
+      aboutTitle: "About Us — Textindustry",
+      aboutDescription: "Textindustry is led by Norma Naboulsi, a Sworn Translator officially authorized in Lebanon, serving the MENA region in English, French and Arabic."
     },
     nav: {
-      home: "Home", services: "Services", sworn: "The Sworn Advantage",
+      home: "Home", services: "Services", sworn: "The Sworn Advantage", about: "About Us",
       quote: "Request a Quote", menu: "Menu"
     },
     hero: {
@@ -94,6 +96,22 @@ window.TEXTINDUSTRY_I18N = {
       q6: "Is my document handled confidentially?",
       a6: "Yes — all documents, especially sensitive legal material, are treated as strictly confidential."
     },
+    about: {
+      eyebrow: "About Us",
+      title: "A name you can trust with your words",
+      lead: "Textindustry is led by Norma Naboulsi, a Sworn Translator officially authorized in Lebanon, serving clients across the MENA region in English, French and Arabic.",
+      founderName: "Norma Naboulsi, Sworn Translator",
+      founderBody1: "Norma Naboulsi leads Textindustry as a Sworn Translator officially recognized in Lebanon, authorized to certify translations with an official stamp accepted by courts, notaries, ministries, embassies and international institutions.",
+      founderBody2: "Under her direction, Textindustry brings the same precision to legal translation, localization, press communications and creative editorial — always across English, French and Arabic, always with the region's cultural context in mind.",
+      valuesEyebrow: "What Guides Us",
+      valuesTitle: "Precision, fluency, discretion",
+      value1Title: "Precision",
+      value1Body: "Every document is translated and reviewed with the accuracy a sworn stamp demands.",
+      value2Title: "Cultural Fluency",
+      value2Body: "Content is adapted for the MENA region, not just translated into it.",
+      value3Title: "Confidentiality",
+      value3Body: "Legal and business documents are handled under strict confidentiality, always."
+    },
     lang: { arabic: "Arabic", english: "English", french: "French", other: "Other" }
   },
 
@@ -103,10 +121,12 @@ window.TEXTINDUSTRY_I18N = {
       homeTitle: "Textindustry — Traduction & Localisation, Beyrouth",
       homeDescription: "Textindustry est une agence de traduction et de localisation basée à Beyrouth, au service de la région MENA. Traduction juridique assermentée, localisation, communiqués de presse et rédaction créative en anglais, français et arabe.",
       contactTitle: "Demander un devis — Textindustry",
-      contactDescription: "Demandez un devis de traduction ou de localisation auprès de Textindustry. Joignez vos documents et recevez une estimation personnalisée à quotes@textindustry.com."
+      contactDescription: "Demandez un devis de traduction ou de localisation auprès de Textindustry. Joignez vos documents et recevez une estimation personnalisée à quotes@textindustry.com.",
+      aboutTitle: "À propos — Textindustry",
+      aboutDescription: "Textindustry est dirigée par Norma Naboulsi, traductrice assermentée officiellement habilitée au Liban, au service de la région MENA en anglais, français et arabe."
     },
     nav: {
-      home: "Accueil", services: "Services", sworn: "L'avantage assermenté",
+      home: "Accueil", services: "Services", sworn: "L'avantage assermenté", about: "À propos",
       quote: "Demander un devis", menu: "Menu"
     },
     hero: {
@@ -188,6 +208,22 @@ window.TEXTINDUSTRY_I18N = {
       q6: "Mon document est-il traité de manière confidentielle ?",
       a6: "Oui — tous les documents, en particulier les documents juridiques sensibles, sont traités en toute confidentialité."
     },
+    about: {
+      eyebrow: "À propos",
+      title: "Un nom en qui faire confiance pour vos mots",
+      lead: "Textindustry est dirigée par Norma Naboulsi, traductrice assermentée officiellement habilitée au Liban, au service de clients dans toute la région MENA en anglais, français et arabe.",
+      founderName: "Norma Naboulsi, traductrice assermentée",
+      founderBody1: "Norma Naboulsi dirige Textindustry en tant que traductrice assermentée officiellement reconnue au Liban, habilitée à certifier des traductions au moyen d'un cachet officiel accepté par les tribunaux, notaires, ministères, ambassades et institutions internationales.",
+      founderBody2: "Sous sa direction, Textindustry applique la même précision à la traduction juridique, à la localisation, aux communications de presse et à la rédaction créative — toujours en anglais, français et arabe, toujours en tenant compte du contexte culturel de la région.",
+      valuesEyebrow: "Ce qui nous guide",
+      valuesTitle: "Précision, aisance linguistique, discrétion",
+      value1Title: "Précision",
+      value1Body: "Chaque document est traduit et relu avec l'exactitude qu'exige un cachet assermenté.",
+      value2Title: "Aisance culturelle",
+      value2Body: "Le contenu est adapté pour la région MENA, et non simplement traduit à son intention.",
+      value3Title: "Confidentialité",
+      value3Body: "Les documents juridiques et professionnels sont toujours traités en toute confidentialité."
+    },
     lang: { arabic: "Arabe", english: "Anglais", french: "Français", other: "Autre" }
   },
 
@@ -197,10 +233,12 @@ window.TEXTINDUSTRY_I18N = {
       homeTitle: "تكست إندستري — ترجمة وتوطين، بيروت",
       homeDescription: "تكست إندستري وكالة ترجمة وتوطين مقرها بيروت، تخدم منطقة الشرق الأوسط وشمال أفريقيا. ترجمة قانونية محلّفة، توطين، بيانات صحفية، وتحرير إبداعي بالإنكليزية والفرنسية والعربية.",
       contactTitle: "اطلب عرض سعر — تكست إندستري",
-      contactDescription: "اطلب عرض سعر للترجمة أو التوطين من تكست إندستري. أرفق مستنداتك واحصل على عرض سعر مخصص عبر quotes@textindustry.com."
+      contactDescription: "اطلب عرض سعر للترجمة أو التوطين من تكست إندستري. أرفق مستنداتك واحصل على عرض سعر مخصص عبر quotes@textindustry.com.",
+      aboutTitle: "من نحن — تكست إندستري",
+      aboutDescription: "تقودها نورما نابلسي، مترجمة محلّفة معتمدة رسميًا في لبنان، في خدمة منطقة الشرق الأوسط وشمال أفريقيا بالإنكليزية والفرنسية والعربية."
     },
     nav: {
-      home: "الرئيسية", services: "الخدمات", sworn: "ميزة الترجمة المحلّفة",
+      home: "الرئيسية", services: "الخدمات", sworn: "ميزة الترجمة المحلّفة", about: "من نحن",
       quote: "اطلب عرض سعر", menu: "القائمة"
     },
     hero: {
@@ -281,6 +319,22 @@ window.TEXTINDUSTRY_I18N = {
       a5: "استخدموا نموذج طلب عرض السعر في صفحة التواصل — يمكنكم إرفاق ملفات PDF أو DOCX أو PNG أو JPG (حتى 10 ميغابايت لكل ملف) مباشرة مع طلبكم، أو المراسلة على quotes@textindustry.com.",
       q6: "هل تُعامَل مستنداتي بسرية؟",
       a6: "نعم — تُعامَل جميع المستندات، لا سيما المواد القانونية الحساسة، بسرية تامة."
+    },
+    about: {
+      eyebrow: "من نحن",
+      title: "اسم يمكنكم الوثوق به لكلماتكم",
+      lead: "تقود نورما نابلسي تكست إندستري، وهي مترجمة محلّفة معتمدة رسميًا في لبنان، في خدمة عملاء في جميع أنحاء منطقة الشرق الأوسط وشمال أفريقيا بالإنكليزية والفرنسية والعربية.",
+      founderName: "نورما نابلسي، مترجمة محلّفة",
+      founderBody1: "تقود نورما نابلسي تكست إندستري بصفتها مترجمة محلّفة معترف بها رسميًا في لبنان، ومخوّلة بتصديق الترجمات بختم رسمي مقبول لدى المحاكم وكتّاب العدل والوزارات والسفارات والمؤسسات الدولية.",
+      founderBody2: "تحت إشرافها، تطبّق تكست إندستري الدقة نفسها على الترجمة القانونية والتوطين والاتصالات الصحفية والتحرير الإبداعي — دائمًا بالإنكليزية والفرنسية والعربية، ودائمًا مع مراعاة السياق الثقافي للمنطقة.",
+      valuesEyebrow: "ما يوجّهنا",
+      valuesTitle: "الدقة، والتمكّن الثقافي، والكتمان",
+      value1Title: "الدقة",
+      value1Body: "تُترجم كل وثيقة وتُراجع بالدقة التي يتطلبها الختم المحلّف.",
+      value2Title: "التمكّن الثقافي",
+      value2Body: "يُكيَّف المحتوى لمنطقة الشرق الأوسط وشمال أفريقيا، لا أن يُترجم إليها فحسب.",
+      value3Title: "السرية",
+      value3Body: "تُعامَل المستندات القانونية والتجارية دائمًا بسرية تامة."
     },
     lang: { arabic: "العربية", english: "الإنكليزية", french: "الفرنسية", other: "أخرى" }
   }
