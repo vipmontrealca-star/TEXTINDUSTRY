@@ -6,6 +6,14 @@ Live record of what's built, decisions made, and what's next. Update this on eve
 
 Built in small, modular milestones grouped into phases — each milestone checkpointed and verified (browser preview, console check) before moving to the next. See "Phases & Backlog" below for the current breakdown.
 
+## ⚠️ Maintenance note: fr/ar are NOT auto-rebuilt
+
+Since M6c (2026-07-03), the site has three language deploy targets, but only one of them is a live source: `index.html`, `about.html`, `contact.html`, and `js/translations.js` at the repo root are the actual source of truth (English). The **`fr/` and `ar/` folders are pre-built static snapshots**, generated once by rendering each page in a browser and extracting the result — they are not regenerated automatically by the GitHub Actions workflow or by editing the source files.
+
+**This means: any future change to page content, structure, or `translations.js` must be manually re-propagated to `fr/` and `ar/` before pushing, or those two subdomains will silently drift out of sync with the English site** (stale copy, not a broken deploy — the workflow will happily re-upload the same outdated `fr/`/`ar/` files forever until someone regenerates them). There is no automated warning if this is forgotten.
+
+Regeneration process (until/unless a real build step replaces this): open the dev preview, navigate to each of the 3 pages, call `window.TextindustryI18n.applyLang('fr')` (or `'ar'`), extract `document.documentElement.outerHTML`, and re-apply the same post-processing used originally — absolute-ify `css/`/`js/`/`assets/`/`php/` paths to `https://textindustry.com/...`, set canonical/`og:url` to the subdomain's own URL, and set the contact form's `action` to the absolute PHP endpoint. Full detail of the original process is in the M6c log entry below.
+
 ---
 
 ## Phases & Backlog
