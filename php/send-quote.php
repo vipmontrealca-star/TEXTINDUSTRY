@@ -14,6 +14,29 @@ declare(strict_types=1);
 
 header('Content-Type: application/json; charset=utf-8');
 
+// CORS: the fr./ar. subdomains serve their own static HTML but share this
+// single PHP backend on the main domain (avoids tripling the mail backend
+// across three deploy targets) — their contact form submits here cross-origin.
+// Allow-list specific origins rather than a wildcard since this handles
+// file uploads.
+const ALLOWED_ORIGINS = [
+    'https://textindustry.com',
+    'https://www.textindustry.com',
+    'https://fr.textindustry.com',
+    'https://ar.textindustry.com',
+];
+$origin = $_SERVER['HTTP_ORIGIN'] ?? '';
+if (in_array($origin, ALLOWED_ORIGINS, true)) {
+    header('Access-Control-Allow-Origin: ' . $origin);
+    header('Vary: Origin');
+}
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    header('Access-Control-Allow-Methods: POST, OPTIONS');
+    header('Access-Control-Allow-Headers: Content-Type');
+    http_response_code(204);
+    exit;
+}
+
 require __DIR__ . '/vendor/PHPMailer/src/Exception.php';
 require __DIR__ . '/vendor/PHPMailer/src/PHPMailer.php';
 require __DIR__ . '/vendor/PHPMailer/src/SMTP.php';

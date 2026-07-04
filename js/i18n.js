@@ -1,8 +1,21 @@
 /**
  * Textindustry — i18n engine.
- * Applies translations from window.TEXTINDUSTRY_I18N and toggles
- * dir="rtl"/"ltr" + lang on <html> based on the selected language.
- * Persists the choice in localStorage.
+ *
+ * Each language now lives at its own URL (textindustry.com = English,
+ * fr.textindustry.com = French, ar.textindustry.com = Arabic) so search
+ * engines and AI assistants can index each language independently —
+ * that's the whole point of the subdomain split (see PROJECT_LOG M6).
+ * This file therefore does NOT auto-detect/override the page's language
+ * on load (a stored preference or browser language silently swapping
+ * pre-rendered French content back to English would defeat that). It
+ * only syncs the UI to whatever language the page already is, and lets
+ * the language-switcher buttons navigate to the matching subdomain.
+ *
+ * applyLang() itself is kept and exported because the build step
+ * (scripts/build-i18n.js, run in a real browser via the dev preview)
+ * uses this exact function to pre-render the static fr/ar HTML — the
+ * static output and any live client-side use are guaranteed consistent
+ * because they run the same code path.
  */
 (function () {
   "use strict";
@@ -10,21 +23,16 @@
   var STORAGE_KEY = "textindustry_lang";
   var SUPPORTED = ["en", "fr", "ar"];
   var DEFAULT_LANG = "en";
+  var SUBDOMAINS = {
+    en: "https://textindustry.com",
+    fr: "https://fr.textindustry.com",
+    ar: "https://ar.textindustry.com"
+  };
 
   function resolve(path, dict) {
     return path.split(".").reduce(function (acc, key) {
       return acc && typeof acc === "object" ? acc[key] : undefined;
     }, dict);
-  }
-
-  function detectInitialLang() {
-    var stored = localStorage.getItem(STORAGE_KEY);
-    if (stored && SUPPORTED.indexOf(stored) !== -1) return stored;
-
-    var nav = (navigator.language || navigator.userLanguage || "").slice(0, 2).toLowerCase();
-    if (SUPPORTED.indexOf(nav) !== -1) return nav;
-
-    return DEFAULT_LANG;
   }
 
   function applyLang(lang) {
@@ -57,13 +65,26 @@
     document.dispatchEvent(new CustomEvent("textindustry:langchange", { detail: { lang: lang, dict: dict } }));
   }
 
+  function navigateToLang(lang) {
+    var target = SUBDOMAINS[lang];
+    if (!target) return;
+    window.location.href = target + window.location.pathname + window.location.search;
+  }
+
   function init() {
-    var lang = detectInitialLang();
-    applyLang(lang);
+    // The page's own lang (baked in by the build step, or "en" on the
+    // source/root files) is authoritative — just sync the button UI to it.
+    var currentLang = document.documentElement.lang || DEFAULT_LANG;
+    if (SUPPORTED.indexOf(currentLang) === -1) currentLang = DEFAULT_LANG;
+
+    document.querySelectorAll(".lang-btn").forEach(function (btn) {
+      btn.classList.toggle("is-active", btn.getAttribute("data-lang") === currentLang);
+    });
+    localStorage.setItem(STORAGE_KEY, currentLang);
 
     document.querySelectorAll(".lang-btn").forEach(function (btn) {
       btn.addEventListener("click", function () {
-        applyLang(btn.getAttribute("data-lang"));
+        navigateToLang(btn.getAttribute("data-lang"));
       });
     });
   }

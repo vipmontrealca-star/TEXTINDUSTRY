@@ -7,13 +7,13 @@ on:
 
 jobs:
   ftp-deploy:
-    name: FTP deploy to HostGator
+    name: FTP deploy to HostGator (en / fr / ar)
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Deploy via FTPS
+      - name: Deploy EN (main domain) via FTPS
         uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
           server: ${{ secrets.HOSTGATOR_FTP_SERVER }}
@@ -34,3 +34,25 @@ jobs:
             README.md
             NEEDED_FROM_CLIENT.md
             .claude/**
+            fr/**
+            ar/**
+
+      - name: Deploy FR subdomain via FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
+        with:
+          server: ${{ secrets.HOSTGATOR_FTP_SERVER }}
+          username: ${{ secrets.HOSTGATOR_FTP_FR_USERNAME }}
+          password: ${{ secrets.HOSTGATOR_FTP_FR_PASSWORD }}
+          server-dir: /
+          local-dir: ./fr/
+          protocol: ftps
+
+      - name: Deploy AR subdomain via FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
+        with:
+          server: ${{ secrets.HOSTGATOR_FTP_SERVER }}
+          username: ${{ secrets.HOSTGATOR_FTP_AR_USERNAME }}
+          password: ${{ secrets.HOSTGATOR_FTP_AR_PASSWORD }}
+          server-dir: /
+          local-dir: ./ar/
+          protocol: ftps
