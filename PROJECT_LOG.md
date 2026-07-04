@@ -23,7 +23,7 @@ Regeneration process (until/unless a real build step replaces this): open the de
 - [x] **M1.1** — Local git repository initialized
 
 ### Phase 2 — Core Functionality (in progress)
-- [ ] **M2** — Form backend: `php/send-quote.php` built (PHPMailer, validation, honeypot) and front-end wired up — **paused, awaiting user decision** on how to execution-test it (no local PHP available); not yet marked complete.
+- [x] **M2** — Form backend: `php/send-quote.php` (PHPMailer, validation, honeypot, CORS) tested end-to-end live (2026-07-03) — real submission confirmed sending; found and fixed a spam-delivery gap (missing DMARC record) along the way. Deliverability improved, not guaranteed perfect — see the full write-up further down for the SMTP/transactional-email fallback if spam-filtering persists.
 - [x] **M3a** — Design overhaul + logo (2026-07-03): corporate ink/paper/blue-ink theme replacing the gold/serif look; TEXTINDUSTRY two-tone lockup + ن-inspired mark; favicon wired up
 - [x] **M3b** — Open Graph image (`assets/img/og-image.jpg`, 1200×630) + OG/Twitter meta tags + theme-color on both pages (2026-07-03)
 - [ ] **M4** — Accessibility pass: keyboard nav on mobile menu/language switcher, focus states, `aria-live` review, color contrast check (blue-on-dark accents)
@@ -263,3 +263,19 @@ Site was returning 403 despite "successful" GitHub Actions runs because the FTP 
 - `fr.textindustry.com` / `ar.textindustry.com` still `200` (unaffected, as expected — separate document roots entirely).
 
 No regressions. `mail.textindustry.com` → branded gateway is fully live.
+
+### 2026-07-03 — M2 finally closed out: contact form tested end-to-end, spam-delivery gap found and fixed
+**Client test:** submitted a real quote request through the live contact form — the email didn't show up in the `quotes@textindustry.com` inbox.
+
+**Diagnosed directly:** POSTed a real test submission straight to `https://textindustry.com/php/send-quote.php` — it returned `{"ok":true,...}` (HTTP 200), meaning the script itself runs cleanly and PHP's `mail()` reports success. Not a broken script — a deliverability problem. Client then checked spam/junk and **found the test email there** — confirmed mail is sending, just getting spam-filtered.
+
+**Checked DNS authentication records directly** (`nslookup` for TXT records, no login needed):
+- **SPF:** present and correctly configured — `v=spf1 a mx include:websitewelcome.com ~all` (HostGator's standard record).
+- **DKIM:** present, valid-looking key at the default cPanel selector.
+- **DMARC: missing entirely.** This is the real gap — a domain with SPF+DKIM but no DMARC policy looks less trustworthy to major providers (Gmail especially, which weights DMARC heavily for inbox-vs-spam decisions).
+
+**Fix:** client added `_dmarc.textindustry.com` TXT record via cPanel Zone Editor: `v=DMARC1; p=none; rua=mailto:quotes@textindustry.com` — monitor-only policy, can't block/quarantine anything, just adds a trust signal (and optional aggregate reports to the same inbox). Verified live via `nslookup` against Google's public resolver (8.8.8.8) — exact expected value confirmed, even though it hadn't yet propagated to the local network's own resolver at time of check (propagation lag, not a config problem).
+
+**Also advised:** mark the existing test email "Not Spam" in whatever mail client it landed in, to help train that provider's filter for this sender going forward.
+
+**Still open / worth knowing:** DMARC alone may not be sufficient — if spam-filtering persists after this, the more heavyweight (but more reliable) fix is switching the PHP script from `mail()` to authenticated SMTP through the actual `quotes@textindustry.com` mailbox, or a transactional email service (e.g. SendGrid/Mailgun/SES) — noted as a fallback, not implemented, since DMARC is the lower-risk first step and hasn't been given a chance to prove itself with a fresh test yet.
