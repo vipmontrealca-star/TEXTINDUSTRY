@@ -192,3 +192,22 @@ Site was returning 403 despite "successful" GitHub Actions runs because the FTP 
 **Deploy verified live (post-push, same session):** run id 28686584109 succeeded; `curl` confirmed `assets/img/hero-beirut.jpg` and `sitemap.xml` both return HTTP 200, and following the `www` → root redirect, the live homepage contains 6 `faq-item` matches — the FAQ section is genuinely live, not just committed.
 
 **Unprompted bonus finding:** `www.textindustry.com` now 301-redirects to `https://textindustry.com/`, and `https://textindustry.com/` returns a clean **HTTP 200 with a valid, trusted SSL certificate** (`curl` succeeds without `-k`/insecure mode). AutoSSL has caught up since the certificate-mismatch issue noted earlier in the session — HTTPS is fully working now, no manual action needed.
+
+### 2026-07-03 — Two design bugs fixed (client visual QA)
+**Client report 1:** the ن mark and the TEXT/INDUSTRY wordmark should read visually as "a square and a rectangle" of the same height — they didn't match.
+
+**Root cause:** `.brand-mark` is a fixed 36×36 square, but `.brand-word` sized itself from `font-size + line-height + padding` (≈28.7px tall) — shorter than the mark, so the pairing looked visually unbalanced.
+
+**Fix (`css/styles.css`):** gave `.brand-word` an explicit `height: 36px` with `display: flex; align-items: center;` to vertically center the text, replacing the old line-height/vertical-padding approach. Now both wordmark pieces render at exactly 36px tall (rectangle), matching the mark's 36×36 (square).
+
+**Verified:** `getBoundingClientRect()` on both `.brand-mark` and both `.brand-word` elements confirms `height === 36` for all three, on `index.html` and `contact.html`, in both header and footer instances, and the RTL fix from earlier (`direction: ltr`, TEXT-left-of-INDUSTRY) still holds correctly after this change. No console errors.
+
+**Client report 2:** on the blue-highlighted "Professional Legal Translation" card, the white heading is readable but the body paragraph isn't.
+
+**Root cause:** a real CSS specificity/order bug. `.service-card--featured p { color: rgba(255,255,255,0.82); }` was declared *before* the base `.service-card p { color: var(--color-muted); }` rule in the stylesheet. Both selectors have identical specificity (one class + one element each), so **source order decided the winner** — the later, generic gray rule silently overrode the earlier white one on every card, including the featured one. The heading (`h3`) was unaffected because there was no competing `h3` color rule to lose to.
+
+**Fix:** reordered the rules so `.service-card--featured p` comes *after* `.service-card p`, with a comment explaining why the order matters (to stop a future edit from innocently breaking it again).
+
+**Verified:** computed `color` on `.service-card--featured p` now reports `rgba(255, 255, 255, 0.82)` (was incorrectly inheriting the gray `--color-muted`); heading and the "SWORN & CERTIFIED" tag pill both confirmed still white/readable. No console errors.
+
+**Lesson worth remembering:** two same-specificity selectors targeting the same element — whichever is declared later in the file wins, regardless of which one "sounds" more specific (`--featured p` reads like it should win over plain `p`, but CSS doesn't care about semantic specificity, only selector structure + source order). Worth double-checking rule order whenever a themed/variant override doesn't seem to take effect.
