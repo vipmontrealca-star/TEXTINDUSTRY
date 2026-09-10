@@ -290,3 +290,10 @@ No regressions. `mail.textindustry.com` → branded gateway is fully live.
 **Verified:** Founder section renders correctly in the live design (desktop two-column, mobile stacked-with-photo-first) with no console errors; confirmed zero remaining occurrences of the old `quotes@` address anywhere in the repo (excluding vendored PHPMailer library code, which doesn't reference it).
 
 **Flagging for follow-up (outside this repo, needs the client/hosting side):** the DMARC record documented earlier (`_dmarc.textindustry.com` TXT, `rua=mailto:quotes@textindustry.com`) was configured under the old plural address — if `quote@` (singular) is now the actual monitored mailbox, that DNS record's `rua` target should be updated to match, or DMARC aggregate reports will keep going to an inbox that may no longer be checked. Not something this session can change (HostGator/DNS panel access required).
+
+### 2026-09-10 — WhatsApp click-to-chat link added (Contact + About)
+**Researched:** WhatsApp's new usernames feature (public rollout announced June 2026, region-by-region link resolution from July–September 2026) uses the format `wa.me/<username>` (no `/u/` prefix) — confirmed via WhatsApp's own Help Center documentation and independent coverage (TechCrunch, WABetaInfo).
+
+**Delivered:** added a "WhatsApp — @textindustry" link (`https://wa.me/textindustry`) to the "Direct contact" card on the quote request page, and to Norma's founder section on the About page — both EN source pages and the fr/ar static snapshots, plus a new `contact.whatsapp` i18n key (EN/FR/AR).
+
+**Assumption flagged, not verified by this session:** this assumes the `textindustry` username has actually been reserved on the business's WhatsApp account — username availability can't be checked from here. If it hasn't been reserved yet, the link won't resolve to the right account (or may 404) until it is.

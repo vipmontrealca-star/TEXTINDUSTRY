@@ -60,6 +60,7 @@ window.TEXTINDUSTRY_I18N = {
       lead: "Tell us about your project and attach your documents — we reply with a tailored quote, usually within one business day.",
       emailLabel: "Prefer email? Write to us directly at",
       asideTitle: "Direct contact",
+      whatsapp: "WhatsApp — @textindustry",
       swornTitle: "Need a certified translation?",
       swornBody: "Mention \"sworn stamp\" in your project details and attach the original document — certified translations are signed and sealed by Norma Naboulsi, Sworn Translator in Lebanon."
     },
@@ -172,6 +173,7 @@ window.TEXTINDUSTRY_I18N = {
       lead: "Parlez-nous de votre projet et joignez vos documents — nous répondons avec un devis personnalisé, généralement sous un jour ouvré.",
       emailLabel: "Vous préférez l'e-mail ? Écrivez-nous directement à",
       asideTitle: "Contact direct",
+      whatsapp: "WhatsApp — @textindustry",
       swornTitle: "Besoin d'une traduction certifiée ?",
       swornBody: "Mentionnez « cachet assermenté » dans les détails de votre projet et joignez le document original — les traductions certifiées sont signées et scellées par Norma Naboulsi, traductrice assermentée au Liban."
     },
@@ -284,6 +286,7 @@ window.TEXTINDUSTRY_I18N = {
       lead: "أخبرونا عن مشروعكم وأرفقوا مستنداتكم — سنرد بعرض سعر مخصص، عادةً خلال يوم عمل واحد.",
       emailLabel: "تفضّلون البريد الإلكتروني؟ راسلونا مباشرة على",
       asideTitle: "تواصل مباشر",
+      whatsapp: "واتساب — @textindustry",
       swornTitle: "بحاجة إلى ترجمة مصدّقة؟",
       swornBody: "اذكروا «ختم محلّف» في تفاصيل مشروعكم وأرفقوا المستند الأصلي — الترجمات المصدّقة موقّعة ومختومة من قبل نورما نابلسي، مترجمة محلّفة في لبنان."
     },
