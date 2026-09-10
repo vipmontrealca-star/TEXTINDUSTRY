@@ -26,7 +26,7 @@ Built in small, modular milestones grouped into phases — each milestone checkp
 - [ ] **M3.4** — Domain/DNS pointed at HostGator hosting, first live deploy verified
 
 ### Phase 4 — Content Expansion (not started, only if requested)
-- [ ] **M5** — Additional pages: About/Team (Norma Naboulsi bio), individual service detail pages
+- [ ] **M5** — Additional pages: About/Team (Norma Naboulsi bio), individual service detail pages — her portrait now lives on the homepage's Sworn Advantage section (see log below) since no standalone About page exists yet
 
 ### Phase 5 — SEO & Launch Readiness (not started)
 - [ ] **M6** — SEO base: sitemap.xml, robots.txt, per-language `hreflang` (once URL/language strategy is decided — currently client-side switch only, no distinct URLs per language)
@@ -90,3 +90,13 @@ Each milestone should be scoped, built, verified, and logged below before starti
 - Remote added: `origin` → `https://github.com/vipmontrealca-star/TEXTINDUSTRY.git`
 - HostGator deployment decided: FTP/SFTP upload (not cPanel Git Version Control) — deploy build to be prepared when user is ready to upload; no credentials handled in chat.
 - First commit created and pushed to `main` on GitHub.
+
+### 2026-09-10 — Norma Naboulsi portrait added to Sworn Advantage section
+**Delivered:**
+- Added `assets/img/norma-naboulsi.jpg` — client-supplied headshot, square-cropped to her face/shoulders and resized to 480×480 (~34KB) for web use.
+- Added a circular portrait + name/role signatory block ("Norma Naboulsi — Sworn Translator, Lebanon") above the bio copy in the homepage's "The Sworn Advantage" section — the closest existing placement to an About/bio spot, since the standalone About page (M5) hasn't been built yet.
+- Added `sworn.signatoryRole` i18n key across EN/FR/AR.
+
+**Verified:** Renders correctly in the section's dark layout; in Arabic/RTL the portrait mirrors to the correct (right) side automatically via the site's logical-property layout, consistent with the rest of the page.
+
+**Note:** File was retrieved from the client's Google Drive (`vipmontreal.ca@gmail.com`) after several inline chat-paste attempts didn't arrive as readable files in this environment.
