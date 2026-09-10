@@ -333,10 +333,23 @@ h1, h2, h3 {
 
 /* ===================== FOUNDER (about page) ===================== */
 .founder { background: var(--color-paper-alt); padding-block: 72px; }
-.founder-inner { max-width: 720px; }
+.founder-inner {
+  max-width: 880px;
+  display: grid;
+  grid-template-columns: 1fr 240px;
+  gap: 40px;
+  align-items: start;
+}
 .founder-inner .section-title { margin-bottom: 20px; }
 .founder-inner p { color: var(--color-muted); margin: 0 0 16px; font-size: 1.02rem; }
 .founder-inner p:last-child { margin-bottom: 0; }
+.founder-photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+}
 
 /* ===================== SWORN ADVANTAGE ===================== */
 /* Wax seal photo (assets/img/sworn-seal.jpg, Unsplash License, Raymond
@@ -595,7 +608,9 @@ h1, h2, h3 {
 
 /* ===================== RESPONSIVE ===================== */
 @media (max-width: 860px) {
-  .sworn-inner, .quote-grid, .page-hero-inner { grid-template-columns: 1fr; }
+  .sworn-inner, .quote-grid, .page-hero-inner, .founder-inner { grid-template-columns: 1fr; }
+  .founder-inner { justify-items: start; }
+  .founder-photo { max-width: 200px; order: -1; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
 }
 

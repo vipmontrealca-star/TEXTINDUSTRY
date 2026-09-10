@@ -163,11 +163,11 @@
             var fileList = document.getElementById("file-list");
             if (fileList) fileList.innerHTML = "";
           } else {
-            showStatus(status, true, result.message || t("form.genericError") || "Something went wrong. Please try again or email quotes@textindustry.com directly.");
+            showStatus(status, true, result.message || t("form.genericError") || "Something went wrong. Please try again or email quote@textindustry.com directly.");
           }
         })
         .catch(function () {
-          showStatus(status, true, t("form.networkError") || "Could not reach the server. Please email quotes@textindustry.com directly.");
+          showStatus(status, true, t("form.networkError") || "Could not reach the server. Please email quote@textindustry.com directly.");
         })
         .finally(function () {
           if (submitBtn) submitBtn.disabled = false;

@@ -9,7 +9,7 @@ window.TEXTINDUSTRY_I18N = {
       homeTitle: "Textindustry — Translation & Localization, Beirut",
       homeDescription: "Textindustry is a Beirut-based translation and localization agency serving the MENA region. Sworn legal translation, localization, press releases and creative editorial in English, French and Arabic.",
       contactTitle: "Request a Quote — Textindustry",
-      contactDescription: "Request a translation or localization quote from Textindustry. Attach your documents and receive a tailored estimate at quotes@textindustry.com.",
+      contactDescription: "Request a translation or localization quote from Textindustry. Attach your documents and receive a tailored estimate at quote@textindustry.com.",
       aboutTitle: "About Us — Textindustry",
       aboutDescription: "Textindustry is led by Norma Naboulsi, a Sworn Translator officially authorized in Lebanon, serving the MENA region in English, French and Arabic."
     },
@@ -75,10 +75,10 @@ window.TEXTINDUSTRY_I18N = {
       attachmentsError: "One or more files were rejected: only PDF, DOCX, PNG and JPG up to 10 MB are accepted.",
       privacy: "Your documents are treated as strictly confidential.",
       submit: "Send Request",
-      successStatus: "Thanks — your request has been sent to quotes@textindustry.com. We'll be in touch soon.",
+      successStatus: "Thanks — your request has been sent to quote@textindustry.com. We'll be in touch soon.",
       errorStatus: "Please fill in all required fields before sending.",
-      networkError: "Could not reach the server. Please email quotes@textindustry.com directly.",
-      genericError: "Something went wrong on our end. Please try again or email quotes@textindustry.com directly."
+      networkError: "Could not reach the server. Please email quote@textindustry.com directly.",
+      genericError: "Something went wrong on our end. Please try again or email quote@textindustry.com directly."
     },
     faq: {
       eyebrow: "Frequently Asked",
@@ -92,7 +92,7 @@ window.TEXTINDUSTRY_I18N = {
       q4: "What services does Textindustry offer besides translation?",
       a4: "Alongside sworn legal translation, we offer localization for digital and cultural adaptation, press release writing and distribution, and fashion and creative editorial content.",
       q5: "How do I request a quote, and what can I attach?",
-      a5: "Use the quote request form on our Contact page — you can attach PDF, DOCX, PNG or JPG files (up to 10MB each) directly with your request, or email quotes@textindustry.com.",
+      a5: "Use the quote request form on our Contact page — you can attach PDF, DOCX, PNG or JPG files (up to 10MB each) directly with your request, or email quote@textindustry.com.",
       q6: "Is my document handled confidentially?",
       a6: "Yes — all documents, especially sensitive legal material, are treated as strictly confidential."
     },
@@ -121,7 +121,7 @@ window.TEXTINDUSTRY_I18N = {
       homeTitle: "Textindustry — Traduction & Localisation, Beyrouth",
       homeDescription: "Textindustry est une agence de traduction et de localisation basée à Beyrouth, au service de la région MENA. Traduction juridique assermentée, localisation, communiqués de presse et rédaction créative en anglais, français et arabe.",
       contactTitle: "Demander un devis — Textindustry",
-      contactDescription: "Demandez un devis de traduction ou de localisation auprès de Textindustry. Joignez vos documents et recevez une estimation personnalisée à quotes@textindustry.com.",
+      contactDescription: "Demandez un devis de traduction ou de localisation auprès de Textindustry. Joignez vos documents et recevez une estimation personnalisée à quote@textindustry.com.",
       aboutTitle: "À propos — Textindustry",
       aboutDescription: "Textindustry est dirigée par Norma Naboulsi, traductrice assermentée officiellement habilitée au Liban, au service de la région MENA en anglais, français et arabe."
     },
@@ -187,10 +187,10 @@ window.TEXTINDUSTRY_I18N = {
       attachmentsError: "Un ou plusieurs fichiers ont été refusés : seuls les formats PDF, DOCX, PNG et JPG jusqu'à 10 Mo sont acceptés.",
       privacy: "Vos documents sont traités en toute confidentialité.",
       submit: "Envoyer la demande",
-      successStatus: "Merci — votre demande a été envoyée à quotes@textindustry.com. Nous vous répondrons sous peu.",
+      successStatus: "Merci — votre demande a été envoyée à quote@textindustry.com. Nous vous répondrons sous peu.",
       errorStatus: "Veuillez remplir tous les champs obligatoires avant d'envoyer.",
-      networkError: "Impossible de joindre le serveur. Veuillez écrire directement à quotes@textindustry.com.",
-      genericError: "Une erreur est survenue de notre côté. Veuillez réessayer ou écrire directement à quotes@textindustry.com."
+      networkError: "Impossible de joindre le serveur. Veuillez écrire directement à quote@textindustry.com.",
+      genericError: "Une erreur est survenue de notre côté. Veuillez réessayer ou écrire directement à quote@textindustry.com."
     },
     faq: {
       eyebrow: "Questions fréquentes",
@@ -204,7 +204,7 @@ window.TEXTINDUSTRY_I18N = {
       q4: "Quels services proposez-vous en plus de la traduction ?",
       a4: "En plus de la traduction juridique assermentée, nous proposons la localisation pour l'adaptation numérique et culturelle, la rédaction et diffusion de communiqués de presse, ainsi que du contenu éditorial créatif pour la mode.",
       q5: "Comment demander un devis, et que puis-je joindre ?",
-      a5: "Utilisez le formulaire de demande de devis sur notre page Contact — vous pouvez joindre directement des fichiers PDF, DOCX, PNG ou JPG (jusqu'à 10 Mo chacun), ou écrire à quotes@textindustry.com.",
+      a5: "Utilisez le formulaire de demande de devis sur notre page Contact — vous pouvez joindre directement des fichiers PDF, DOCX, PNG ou JPG (jusqu'à 10 Mo chacun), ou écrire à quote@textindustry.com.",
       q6: "Mon document est-il traité de manière confidentielle ?",
       a6: "Oui — tous les documents, en particulier les documents juridiques sensibles, sont traités en toute confidentialité."
     },
@@ -233,7 +233,7 @@ window.TEXTINDUSTRY_I18N = {
       homeTitle: "تكست إندستري — ترجمة وتوطين، بيروت",
       homeDescription: "تكست إندستري وكالة ترجمة وتوطين مقرها بيروت، تخدم منطقة الشرق الأوسط وشمال أفريقيا. ترجمة قانونية محلّفة، توطين، بيانات صحفية، وتحرير إبداعي بالإنكليزية والفرنسية والعربية.",
       contactTitle: "اطلب عرض سعر — تكست إندستري",
-      contactDescription: "اطلب عرض سعر للترجمة أو التوطين من تكست إندستري. أرفق مستنداتك واحصل على عرض سعر مخصص عبر quotes@textindustry.com.",
+      contactDescription: "اطلب عرض سعر للترجمة أو التوطين من تكست إندستري. أرفق مستنداتك واحصل على عرض سعر مخصص عبر quote@textindustry.com.",
       aboutTitle: "من نحن — تكست إندستري",
       aboutDescription: "تقودها نورما نابلسي، مترجمة محلّفة معتمدة رسميًا في لبنان، في خدمة منطقة الشرق الأوسط وشمال أفريقيا بالإنكليزية والفرنسية والعربية."
     },
@@ -299,10 +299,10 @@ window.TEXTINDUSTRY_I18N = {
       attachmentsError: "تم رفض ملف واحد أو أكثر: يُقبل فقط PDF وDOCX وPNG وJPG حتى 10 ميغابايت.",
       privacy: "تُعامَل مستنداتكم بسرية تامة.",
       submit: "إرسال الطلب",
-      successStatus: "شكرًا — تم إرسال طلبكم إلى quotes@textindustry.com. سنرد عليكم قريبًا.",
+      successStatus: "شكرًا — تم إرسال طلبكم إلى quote@textindustry.com. سنرد عليكم قريبًا.",
       errorStatus: "يرجى تعبئة جميع الحقول المطلوبة قبل الإرسال.",
-      networkError: "تعذّر الوصول إلى الخادم. يرجى مراسلتنا مباشرة على quotes@textindustry.com.",
-      genericError: "حدث خطأ من جانبنا. يرجى المحاولة مجددًا أو مراسلتنا مباشرة على quotes@textindustry.com."
+      networkError: "تعذّر الوصول إلى الخادم. يرجى مراسلتنا مباشرة على quote@textindustry.com.",
+      genericError: "حدث خطأ من جانبنا. يرجى المحاولة مجددًا أو مراسلتنا مباشرة على quote@textindustry.com."
     },
     faq: {
       eyebrow: "أسئلة شائعة",
@@ -316,7 +316,7 @@ window.TEXTINDUSTRY_I18N = {
       q4: "ما هي الخدمات التي تقدمها تكست إندستري إلى جانب الترجمة؟",
       a4: "إلى جانب الترجمة القانونية المحلّفة، نقدّم التوطين للتكيّف الرقمي والثقافي، وكتابة وتوزيع البيانات الصحفية، ومحتوى تحريريًا إبداعيًا لعالم الموضة.",
       q5: "كيف أطلب عرض سعر، وماذا يمكنني إرفاقه؟",
-      a5: "استخدموا نموذج طلب عرض السعر في صفحة التواصل — يمكنكم إرفاق ملفات PDF أو DOCX أو PNG أو JPG (حتى 10 ميغابايت لكل ملف) مباشرة مع طلبكم، أو المراسلة على quotes@textindustry.com.",
+      a5: "استخدموا نموذج طلب عرض السعر في صفحة التواصل — يمكنكم إرفاق ملفات PDF أو DOCX أو PNG أو JPG (حتى 10 ميغابايت لكل ملف) مباشرة مع طلبكم، أو المراسلة على quote@textindustry.com.",
       q6: "هل تُعامَل مستنداتي بسرية؟",
       a6: "نعم — تُعامَل جميع المستندات، لا سيما المواد القانونية الحساسة، بسرية تامة."
     },

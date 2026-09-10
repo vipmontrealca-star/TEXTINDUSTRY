@@ -2,7 +2,7 @@
 /**
  * Textindustry quote-request handler.
  * Receives the contact.html form (multipart/form-data, incl. attachments)
- * via fetch() and emails it to quotes@textindustry.com using PHPMailer.
+ * via fetch() and emails it to quote@textindustry.com using PHPMailer.
  *
  * Requires: PHP mail()/sendmail configured on the host (standard on
  * HostGator cPanel shared hosting). No SMTP credentials needed for the
@@ -44,9 +44,9 @@ require __DIR__ . '/vendor/PHPMailer/src/SMTP.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception as PHPMailerException;
 
-const RECIPIENT_EMAIL = 'quotes@textindustry.com';
+const RECIPIENT_EMAIL = 'quote@textindustry.com';
 const RECIPIENT_NAME = 'Textindustry';
-const SENDER_EMAIL = 'quotes@textindustry.com'; // must be a real mailbox on the sending domain
+const SENDER_EMAIL = 'quote@textindustry.com'; // must be a real mailbox on the sending domain
 const SENDER_NAME = 'Textindustry Website';
 
 const MAX_FILE_BYTES = 10 * 1024 * 1024; // 10MB per file, matches client-side cap
@@ -178,8 +178,8 @@ try {
     }
 
     $mail->send();
-    respond(true, 'Thanks — your request has been sent to quotes@textindustry.com.');
+    respond(true, 'Thanks — your request has been sent to quote@textindustry.com.');
 } catch (PHPMailerException $e) {
     error_log('Textindustry quote form mail error: ' . $mail->ErrorInfo);
-    respond(false, 'Sorry, something went wrong sending your request. Please email quotes@textindustry.com directly.', 500);
+    respond(false, 'Sorry, something went wrong sending your request. Please email quote@textindustry.com directly.', 500);
 }

@@ -30,7 +30,7 @@ Regeneration process (until/unless a real build step replaces this): open the de
 
 ### Phase 3 — Infrastructure & Version Control (in progress)
 - [x] **M3.1** — `.gitignore` + local git repo initialized
-- [x] **M3.2** — GitHub remote connected: `https://github.com/vipmontrealca-star/TEXTINDUSTRY.git`; commit identity set to `Textindustry` / `quotes@textindustry.com`; first push done
+- [x] **M3.2** — GitHub remote connected: `https://github.com/vipmontrealca-star/TEXTINDUSTRY.git`; commit identity set to `Textindustry` / `quote@textindustry.com`; first push done
 - [x] **M3.3a** — Deploy package built: `textindustry-deploy-2026-07-03.zip` at project root, contents at archive root (extracts directly into `public_html`, no wrapper folder). Contains only production files (`index.html`, `contact.html`, `css/`, `js/`, `assets/`, `php/` incl. vendored PHPMailer) — repo/project-management files (`PROJECT_LOG.md`, `README.md`, `NEEDED_FROM_CLIENT.md`, `.claude/`, `.gitignore`) intentionally excluded. `deploy/` (loose folder) and the zip are both gitignored — build artifacts, not source.
 - [x] **M3.3b (superseded)** — Manual zip upload was the plan, but user opted into automated GitHub Actions deploy instead (see M3.5). Manual zip still available as a one-off/fallback if needed.
 - [x] **M3.5** — GitHub Actions auto-deploy pipeline built and *pipeline itself* verified working (FTP transfer succeeds), but see M3.6 — the deploy was landing in the wrong server-side folder, so the live site stayed broken despite "successful" runs. Dedicated FTP account `deploy_textindustry@textindustry.com`, secrets `HOSTGATOR_FTP_SERVER=ftp.iva.fxh.temporary.site` / `HOSTGATOR_FTP_USERNAME` / `HOSTGATOR_FTP_PASSWORD` / `HOSTGATOR_FTP_SERVER_DIR=/`. Fixed one real bug along the way: run #2 failed with "Input required and not supplied: server" (secret-name mismatch), corrected by the user, run #3 succeeded.
@@ -42,7 +42,7 @@ Regeneration process (until/unless a real build step replaces this): open the de
 ### Phase 4 — Content Expansion (in progress)
 - [x] **M5a** — About Us page (2026-07-03): `about.html`, EN/FR/AR, added to nav on all 3 pages + `sitemap.xml`. Founder section grounded entirely in facts already established elsewhere on the site (role, credential meaning, languages/region) — deliberately no invented biographical specifics (no fabricated education/career history/years-of-experience), since none were provided. Reuses `.services-grid`/`.service-card` for a 3-item values section (Precision, Cultural Fluency, Confidentiality) and the existing `cta-strip` component — new CSS only for `.founder`/`.founder-inner`.
 - [ ] **M5b** — Individual service detail pages (not started, only if requested).
-- [ ] **M5c** — Norma Naboulsi photo received (`assets/img/Norma_Naboulsi.png`) but **explicitly not to be used yet** per client instruction — ready to add to the About page's founder section whenever there's a go-ahead.
+- [x] **M5c** — Client go-ahead received (2026-09-10); Norma's photo added to the About page's founder section (EN/FR/AR) — see log entry below. Note: added as `assets/img/norma-naboulsi.jpg` (cropped/compressed from a client-supplied file received via a parallel session), not the previously-mentioned `assets/img/Norma_Naboulsi.png`.
 
 ### Phase 5 — SEO & Launch Readiness (in progress)
 - [x] **M6a** — SEO/AEO base (2026-07-03): `sitemap.xml`, `robots.txt`, canonical links, `ProfessionalService` JSON-LD structured data on both pages, `FAQPage` JSON-LD + a genuine visible FAQ section on the homepage. `hreflang` intentionally still deferred — needs the per-language URL strategy decision first (see M6b).
@@ -89,7 +89,7 @@ Each milestone should be scoped, built, verified, and logged below before starti
 
 **Decision:** Plain HTML/CSS/JS, no framework — nothing was pre-configured in the workspace, so a static base keeps things simple and portable to a framework later if needed.
 
-**Known gap (not yet fixed):** Contact form submits via `mailto:` placeholder. Browsers cannot attach binary files through `mailto:` links — this needs a real backend endpoint (API route / Formspree / SES+Lambda) before launch, or attachments will not actually reach quotes@textindustry.com.
+**Known gap (not yet fixed):** Contact form submits via `mailto:` placeholder. Browsers cannot attach binary files through `mailto:` links — this needs a real backend endpoint (API route / Formspree / SES+Lambda) before launch, or attachments will not actually reach quote@textindustry.com.
 
 **Process note:** This milestone was delivered as one large batch. Going forward, work is split into smaller milestones grouped by phase (see "Phases & Backlog" above), each checkpointed independently.
 
@@ -100,7 +100,7 @@ Each milestone should be scoped, built, verified, and logged below before starti
 - No commits yet — first commit pending GitHub remote decision (see M3.2 in backlog).
 
 ### 2026-07-03 — M3.2: Connected to GitHub
-- Confirmed commit identity: `Textindustry` / `quotes@textindustry.com` (repo-local git config only, not global).
+- Confirmed commit identity: `Textindustry` / `quote@textindustry.com` (repo-local git config only, not global).
 - Remote added: `origin` → `https://github.com/vipmontrealca-star/TEXTINDUSTRY.git`
 - HostGator deployment decided: FTP/SFTP upload (not cPanel Git Version Control) — deploy build to be prepared when user is ready to upload; no credentials handled in chat.
 - First commit created and pushed to `main` on GitHub.
@@ -265,7 +265,7 @@ Site was returning 403 despite "successful" GitHub Actions runs because the FTP 
 No regressions. `mail.textindustry.com` → branded gateway is fully live.
 
 ### 2026-07-03 — M2 finally closed out: contact form tested end-to-end, spam-delivery gap found and fixed
-**Client test:** submitted a real quote request through the live contact form — the email didn't show up in the `quotes@textindustry.com` inbox.
+**Client test:** submitted a real quote request through the live contact form — the email didn't show up in the `quote@textindustry.com` inbox.
 
 **Diagnosed directly:** POSTed a real test submission straight to `https://textindustry.com/php/send-quote.php` — it returned `{"ok":true,...}` (HTTP 200), meaning the script itself runs cleanly and PHP's `mail()` reports success. Not a broken script — a deliverability problem. Client then checked spam/junk and **found the test email there** — confirmed mail is sending, just getting spam-filtered.
 
@@ -274,8 +274,19 @@ No regressions. `mail.textindustry.com` → branded gateway is fully live.
 - **DKIM:** present, valid-looking key at the default cPanel selector.
 - **DMARC: missing entirely.** This is the real gap — a domain with SPF+DKIM but no DMARC policy looks less trustworthy to major providers (Gmail especially, which weights DMARC heavily for inbox-vs-spam decisions).
 
-**Fix:** client added `_dmarc.textindustry.com` TXT record via cPanel Zone Editor: `v=DMARC1; p=none; rua=mailto:quotes@textindustry.com` — monitor-only policy, can't block/quarantine anything, just adds a trust signal (and optional aggregate reports to the same inbox). Verified live via `nslookup` against Google's public resolver (8.8.8.8) — exact expected value confirmed, even though it hadn't yet propagated to the local network's own resolver at time of check (propagation lag, not a config problem).
+**Fix:** client added `_dmarc.textindustry.com` TXT record via cPanel Zone Editor: `v=DMARC1; p=none; rua=mailto:quote@textindustry.com` — monitor-only policy, can't block/quarantine anything, just adds a trust signal (and optional aggregate reports to the same inbox). Verified live via `nslookup` against Google's public resolver (8.8.8.8) — exact expected value confirmed, even though it hadn't yet propagated to the local network's own resolver at time of check (propagation lag, not a config problem).
 
 **Also advised:** mark the existing test email "Not Spam" in whatever mail client it landed in, to help train that provider's filter for this sender going forward.
 
-**Still open / worth knowing:** DMARC alone may not be sufficient — if spam-filtering persists after this, the more heavyweight (but more reliable) fix is switching the PHP script from `mail()` to authenticated SMTP through the actual `quotes@textindustry.com` mailbox, or a transactional email service (e.g. SendGrid/Mailgun/SES) — noted as a fallback, not implemented, since DMARC is the lower-risk first step and hasn't been given a chance to prove itself with a fresh test yet.
+**Still open / worth knowing:** DMARC alone may not be sufficient — if spam-filtering persists after this, the more heavyweight (but more reliable) fix is switching the PHP script from `mail()` to authenticated SMTP through the actual `quote@textindustry.com` mailbox, or a transactional email service (e.g. SendGrid/Mailgun/SES) — noted as a fallback, not implemented, since DMARC is the lower-risk first step and hasn't been given a chance to prove itself with a fresh test yet.
+
+### 2026-09-10 — Branch sync, Norma's photo added, email correction
+**Context discovered this session:** a separate, parallel Claude session (git-authored `Textindustry <quotes@textindustry.com>`, co-authored `Claude Fable 5`) had been working directly against `main` this whole time, independently of the branch this session was using — building the entire current corporate ink/paper/blue redesign, PHP backend, About page, fr./ar. subdomains, and SEO base documented above. This session's branch had fallen far behind and its own redesign work (gold/charcoal theme, different logo) directly conflicted with what's actually live. Resolved by merging `origin/main` into this branch, taking main's content for every conflicting file, and removing this branch's now-orphaned assets/keys.
+
+**Delivered:**
+- **Norma Naboulsi's portrait added to the About page** (`about.html`, `fr/about.html`, `ar/about.html`): new `.founder-photo` in a two-column grid alongside the existing bio copy (`.founder-copy`), matching the site's existing `.page-hero-inner`/`.sworn-inner` grid pattern — text first, photo second, collapsing to a single stacked column (photo on top) on mobile. Image: `assets/img/norma-naboulsi.jpg`, square-cropped/compressed (480×480, ~34KB) from a client-supplied photo. fr/ar snapshots reference it via the same absolute `https://textindustry.com/...` pattern already used for shared assets on those subdomains.
+- **Email correction:** `quotes@textindustry.com` → `quote@textindustry.com` (client confirmed singular is the real, working mailbox) across every reference site-wide — visible copy, meta/structured-data tags, `php/send-quote.php`'s `RECIPIENT_EMAIL`/`SENDER_EMAIL` constants and its response messages, `NEEDED_FROM_CLIENT.md`, `README.md`, and this log.
+
+**Verified:** Founder section renders correctly in the live design (desktop two-column, mobile stacked-with-photo-first) with no console errors; confirmed zero remaining occurrences of the old `quotes@` address anywhere in the repo (excluding vendored PHPMailer library code, which doesn't reference it).
+
+**Flagging for follow-up (outside this repo, needs the client/hosting side):** the DMARC record documented earlier (`_dmarc.textindustry.com` TXT, `rua=mailto:quotes@textindustry.com`) was configured under the old plural address — if `quote@` (singular) is now the actual monitored mailbox, that DNS record's `rua` target should be updated to match, or DMARC aggregate reports will keep going to an inbox that may no longer be checked. Not something this session can change (HostGator/DNS panel access required).

@@ -38,7 +38,7 @@ assets/img/          Reserved for logo, photography, and Open Graph images
 - Fields: name, company, email, phone, source language, target language, service, message.
 - Multi-file attachment input (drag-and-drop + click-to-browse) restricted to
   `.pdf .docx .png .jpg/.jpeg`, 10MB per file, with a removable file list.
-- Primary inbox: **quotes@textindustry.com**.
+- Primary inbox: **quote@textindustry.com**.
 - The form currently submits via `mailto:` as a static-site placeholder. Browsers
   cannot attach binary files through `mailto:` — wire this form to a real backend
   or form service (e.g. an API route, Formspree, AWS SES/Lambda) before launch so
@@ -47,7 +47,7 @@ assets/img/          Reserved for logo, photography, and Open Graph images
 ## Next steps for production
 
 - Replace the `mailto:` submission in `contact.html` with a real endpoint that
-  accepts `multipart/form-data` and forwards to quotes@textindustry.com.
+  accepts `multipart/form-data` and forwards to quote@textindustry.com.
 - Add logo/brand imagery to `assets/img/`.
 - Consider migrating to Next.js if server-side rendering, routing, or a CMS
   becomes necessary — the current i18n/RTL structure ports directly.

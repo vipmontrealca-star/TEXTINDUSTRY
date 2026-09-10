@@ -9,7 +9,7 @@ Live checklist of information/assets needed from the site owner to keep moving. 
 **M2 — Form backend**
 - [ ] Preferred handling once submitted: send an email notification only, or also store submissions somewhere (spreadsheet, simple database)?
 - [ ] Should attachments be size-capped differently than the current 10MB/file client-side limit (some mail/PHP configs cap total message size lower)?
-- [ ] Any additional recipients besides quotes@textindustry.com who should be notified (e.g. Norma directly, or a second inbox)?
+- [ ] Any additional recipients besides quote@textindustry.com who should be notified (e.g. Norma directly, or a second inbox)?
 
 **M3 — Brand assets**
 - [x] Logo/mark — custom-designed per client direction (geometric ن-inspired mark + TEXT/INDUSTRY two-tone lockup), doubling as favicon. Done 2026-07-03.
@@ -32,4 +32,4 @@ Live checklist of information/assets needed from the site owner to keep moving. 
 
 ## General / ongoing
 - [ ] Final sign-off on homepage/contact copy as currently written (all EN/FR/AR strings live in `js/translations.js`) — flag anything that reads off, especially the Arabic and French translations, which should get a native-speaker review before launch.
-- [ ] Confirm quotes@textindustry.com is the only inbox in scope, or if a general info@ address should also appear anywhere.
+- [ ] Confirm quote@textindustry.com is the only inbox in scope, or if a general info@ address should also appear anywhere.
