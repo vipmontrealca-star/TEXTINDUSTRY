@@ -1,33 +1,33 @@
 /* =========================================================
-   Textindustry — Base Stylesheet
+   Textindustry — Base Stylesheet (corporate ink/paper theme)
    Uses CSS logical properties throughout so the entire
    layout mirrors automatically when dir="rtl" is set on <html>.
    ========================================================= */
 
 :root {
-  /* Palette — sophisticated, editorial */
-  --color-ink: #1b1b1d;
-  --color-paper: #faf8f4;
-  --color-paper-alt: #f2ede4;
-  --color-charcoal: #23262b;
-  --color-charcoal-2: #14161a;
-  --color-gold: #b58a3d;
-  --color-gold-light: #d8b876;
-  --color-muted: #6f6a63;
-  --color-line: #e4dfd5;
+  /* Palette — paper, ink, blue ink */
+  --color-ink: #10151d;
+  --color-paper: #ffffff;
+  --color-paper-alt: #f4f6fa;
+  --color-charcoal: #1a2130;
+  --color-charcoal-2: #0c111b;
+  --color-accent: #1d4ed8;
+  --color-accent-dark: #16389c;
+  --color-accent-light: #93b8f8;
+  --color-muted: #5b6472;
+  --color-line: #e3e7ee;
   --color-white: #ffffff;
   --color-error: #b3261e;
 
-  /* Typography */
-  --font-display: "Cormorant Garamond", "Amiri", serif;
-  --font-body: "Inter", "Tajawal", sans-serif;
-  --font-arabic-display: "Amiri", "Cormorant Garamond", serif;
-  --font-arabic-body: "Tajawal", "Inter", sans-serif;
-  --font-logo: "Poppins", "Inter", sans-serif;
+  /* Typography — rounded corporate sans, no serifs */
+  --font-display: "Manrope", "Tajawal", sans-serif;
+  --font-body: "Manrope", "Tajawal", sans-serif;
+  --font-arabic-display: "Tajawal", "Manrope", sans-serif;
+  --font-arabic-body: "Tajawal", "Manrope", sans-serif;
 
   --container-width: 1180px;
-  --radius: 6px;
-  --shadow-soft: 0 12px 30px rgba(20, 18, 12, 0.08);
+  --radius: 12px;
+  --shadow-soft: 0 12px 30px rgba(16, 21, 29, 0.08);
 }
 
 * { box-sizing: border-box; }
@@ -45,10 +45,10 @@ body {
 }
 
 /* -------- RTL / LTR handling --------
-   html[dir="rtl"] swaps to Arabic type pairing.
+   html[dir="rtl"] swaps to the Arabic type pairing.
    Everything else uses logical properties (margin-inline,
-   padding-inline, text-align: start/end, inset-inline)
-   so no mirrored overrides are needed for layout. */
+   padding-inline, inset-inline) so no mirrored overrides
+   are needed for layout. */
 html[dir="rtl"] body {
   font-family: var(--font-arabic-body);
 }
@@ -81,8 +81,9 @@ button { font: inherit; cursor: pointer; }
 
 h1, h2, h3 {
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: 800;
   line-height: 1.15;
+  letter-spacing: -0.01em;
   margin: 0 0 0.5em;
 }
 
@@ -91,7 +92,7 @@ h1, h2, h3 {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(250, 248, 244, 0.92);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(8px);
   border-block-end: 1px solid var(--color-line);
 }
@@ -100,48 +101,56 @@ h1, h2, h3 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-block: 16px;
+  padding-block: 14px;
   gap: 24px;
 }
 
+/* ---- Brand lockup: noon mark + TEXT/INDUSTRY two-tone wordmark ----
+   direction: ltr is intentional and permanent here: this is a fixed
+   logotype (brand name in Latin script), not translatable content, so
+   it must never mirror order under dir="rtl" — icon-then-wordmark and
+   TEXT-then-INDUSTRY stay fixed regardless of page language. */
 .brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
+  direction: ltr;
 }
 .brand-mark {
-  display: inline-block;
-  width: 34px; height: 34px;
+  width: 36px;
+  height: 36px;
   flex-shrink: 0;
 }
-.brand-wordmark {
-  display: inline-flex;
-  font-family: var(--font-logo);
-  text-transform: uppercase;
-  line-height: 1;
-}
+.brand-mark-tile { fill: var(--color-accent); }
+.brand-mark-glyph { fill: var(--color-white); }
+.brand-mark-stroke { stroke: var(--color-white); }
+
 .brand-word {
-  padding: 8px 12px;
-  font-size: 1.05rem;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  padding-inline: 9px;
+  color: var(--color-white);
+  letter-spacing: 0.08em;
 }
 .brand-word--text {
-  background: var(--color-charcoal);
-  color: var(--color-paper);
+  background: var(--color-accent);
   font-weight: 800;
-  letter-spacing: 0.02em;
-  border-start-start-radius: var(--radius);
-  border-end-start-radius: var(--radius);
+  border-start-start-radius: 8px;
+  border-end-start-radius: 8px;
 }
 .brand-word--industry {
-  background: var(--color-gold);
-  color: var(--color-charcoal-2);
+  background: var(--color-charcoal-2);
   font-weight: 300;
-  letter-spacing: 0.05em;
-  border-start-end-radius: var(--radius);
-  border-end-end-radius: var(--radius);
+  letter-spacing: 0.16em;
+  border-start-end-radius: 8px;
+  border-end-end-radius: 8px;
 }
-.footer-brand .brand-mark { width: 28px; height: 28px; }
-.footer-brand .brand-word { font-size: 0.9rem; padding: 6px 10px; }
+.brand-word + .brand-word { margin-inline-start: 0; }
+.brand .brand-word--text { margin-inline-start: 0; }
+.brand-lockup { display: inline-flex; align-items: stretch; direction: ltr; }
 
 .main-nav {
   display: flex;
@@ -150,20 +159,24 @@ h1, h2, h3 {
 }
 .nav-link {
   font-size: 0.95rem;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--color-charcoal);
   padding-block: 4px;
   border-block-end: 2px solid transparent;
   transition: border-color 0.2s, color 0.2s;
 }
-.nav-link:hover, .nav-link.is-active { border-block-end-color: var(--color-gold); }
+.nav-link:hover, .nav-link.is-active { border-block-end-color: var(--color-accent); color: var(--color-accent); }
 .nav-cta {
-  background: var(--color-charcoal);
-  color: var(--color-paper);
-  padding: 8px 18px;
+  background: var(--color-accent);
+  color: var(--color-white);
+  padding: 9px 18px;
   border-radius: 999px;
 }
-.nav-cta:hover, .nav-cta.is-active { border-block-end-color: transparent; background: var(--color-gold); color: var(--color-charcoal-2); }
+.nav-cta:hover, .nav-cta.is-active {
+  border-block-end-color: transparent;
+  background: var(--color-accent-dark);
+  color: var(--color-white);
+}
 
 .header-tools { display: flex; align-items: center; gap: 14px; }
 
@@ -178,12 +191,12 @@ h1, h2, h3 {
   border: none;
   padding: 6px 12px;
   font-size: 0.8rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-muted);
   border-inline-start: 1px solid var(--color-line);
 }
 .lang-btn:first-child { border-inline-start: none; }
-.lang-btn.is-active { background: var(--color-charcoal); color: var(--color-paper); }
+.lang-btn.is-active { background: var(--color-accent); color: var(--color-white); }
 
 .nav-toggle {
   display: none;
@@ -199,32 +212,37 @@ h1, h2, h3 {
 }
 
 /* ===================== HERO ===================== */
+/* Beirut skyline photo (assets/img/hero-beirut.jpg, Unsplash License,
+   Sara Calado) with a dark ink-blue scrim so white text stays legible. */
 .hero {
-  padding-block: 96px 80px;
+  padding-block: 120px 96px;
   background:
-    radial-gradient(1200px 500px at 85% -10%, rgba(181,138,61,0.14), transparent 60%),
-    var(--color-paper);
+    linear-gradient(180deg, rgba(12,17,27,0.82) 0%, rgba(12,17,27,0.9) 100%),
+    radial-gradient(1200px 600px at 85% 0%, rgba(29, 78, 216, 0.35), transparent 60%),
+    url("../assets/img/hero-beirut.jpg") center 65% / cover no-repeat;
 }
 .hero-inner { max-width: 780px; }
 .hero-eyebrow {
-  color: var(--color-gold);
+  color: var(--color-accent-light);
   text-transform: uppercase;
   letter-spacing: 0.14em;
   font-size: 0.8rem;
-  font-weight: 600;
+  font-weight: 800;
   margin-bottom: 18px;
 }
 .hero-title {
-  font-size: clamp(2.2rem, 4vw, 3.4rem);
-  color: var(--color-charcoal-2);
+  font-size: clamp(2.2rem, 4vw, 3.3rem);
+  color: var(--color-white);
 }
 .hero-subtitle {
   font-size: 1.15rem;
-  color: var(--color-muted);
+  color: rgba(255,255,255,0.82);
   max-width: 620px;
   margin-bottom: 32px;
 }
 .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 40px; }
+.hero .btn-ghost { border-color: rgba(255,255,255,0.6); color: var(--color-white); }
+.hero .btn-ghost:hover { background: var(--color-white); border-color: var(--color-white); color: var(--color-charcoal-2); }
 .hero-badges {
   display: flex;
   flex-wrap: wrap;
@@ -232,7 +250,7 @@ h1, h2, h3 {
 }
 .hero-badges li {
   font-size: 0.8rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-charcoal);
   background: var(--color-white);
   border: 1px solid var(--color-line);
@@ -247,33 +265,33 @@ h1, h2, h3 {
   justify-content: center;
   padding: 14px 28px;
   border-radius: 999px;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.95rem;
   border: 1px solid transparent;
   transition: transform 0.15s ease, background 0.2s, color 0.2s, border-color 0.2s;
 }
 .btn:hover { transform: translateY(-1px); }
-.btn-primary { background: var(--color-charcoal-2); color: var(--color-paper); }
-.btn-primary:hover { background: var(--color-gold); color: var(--color-charcoal-2); }
+.btn-primary { background: var(--color-accent); color: var(--color-white); }
+.btn-primary:hover { background: var(--color-accent-dark); }
 .btn-ghost { border-color: var(--color-charcoal); color: var(--color-charcoal); }
-.btn-ghost:hover { background: var(--color-charcoal); color: var(--color-paper); }
-.btn-gold { background: var(--color-gold); color: var(--color-charcoal-2); }
-.btn-gold:hover { background: var(--color-gold-light); }
+.btn-ghost:hover { background: var(--color-charcoal-2); border-color: var(--color-charcoal-2); color: var(--color-white); }
+.btn-light { background: var(--color-white); color: var(--color-charcoal-2); }
+.btn-light:hover { background: var(--color-accent); color: var(--color-white); }
 .btn-wide { width: 100%; }
 
 /* ===================== SECTION HEAD ===================== */
 .section-head { max-width: 640px; margin-bottom: 48px; }
 .section-eyebrow {
-  color: var(--color-gold);
+  color: var(--color-accent);
   text-transform: uppercase;
   letter-spacing: 0.14em;
   font-size: 0.8rem;
-  font-weight: 600;
+  font-weight: 800;
   margin-bottom: 10px;
 }
-.section-eyebrow--light { color: var(--color-gold-light); }
-.section-title { font-size: clamp(1.8rem, 3vw, 2.6rem); color: var(--color-charcoal-2); }
-.section-title--light { color: var(--color-paper); }
+.section-eyebrow--light { color: var(--color-accent-light); }
+.section-title { font-size: clamp(1.8rem, 3vw, 2.5rem); color: var(--color-charcoal-2); }
+.section-title--light { color: var(--color-white); }
 
 /* ===================== SERVICES ===================== */
 .services { padding-block: 88px; }
@@ -287,35 +305,48 @@ h1, h2, h3 {
   border: 1px solid var(--color-line);
   border-radius: var(--radius);
   padding: 32px 28px;
-  transition: box-shadow 0.2s, transform 0.2s;
+  transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
 }
-.service-card:hover { box-shadow: var(--shadow-soft); transform: translateY(-3px); }
+.service-card:hover { box-shadow: var(--shadow-soft); transform: translateY(-3px); border-color: var(--color-accent-light); }
 .service-card--featured {
-  background: var(--color-charcoal-2);
-  color: var(--color-paper);
-  border-color: var(--color-charcoal-2);
+  background: var(--color-accent);
+  color: var(--color-white);
+  border-color: var(--color-accent);
 }
-.service-card--featured p { color: rgba(250,248,244,0.75); }
 .service-icon { font-size: 1.8rem; margin-bottom: 18px; }
 .service-card h3 { font-size: 1.25rem; margin-bottom: 12px; }
 .service-card p { color: var(--color-muted); margin: 0 0 18px; font-size: 0.95rem; }
+/* Must come after the base .service-card p rule (same specificity) to win. */
+.service-card--featured p { color: rgba(255,255,255,0.82); }
 .service-tag {
   display: inline-block;
   font-size: 0.72rem;
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   padding: 6px 12px;
   border-radius: 999px;
-  background: rgba(181,138,61,0.14);
-  color: var(--color-gold);
+  background: rgba(29, 78, 216, 0.08);
+  color: var(--color-accent);
 }
-.service-card--featured .service-tag { background: rgba(216,184,118,0.18); color: var(--color-gold-light); }
+.service-card--featured .service-tag { background: rgba(255,255,255,0.16); color: var(--color-white); }
+
+/* ===================== FOUNDER (about page) ===================== */
+.founder { background: var(--color-paper-alt); padding-block: 72px; }
+.founder-inner { max-width: 720px; }
+.founder-inner .section-title { margin-bottom: 20px; }
+.founder-inner p { color: var(--color-muted); margin: 0 0 16px; font-size: 1.02rem; }
+.founder-inner p:last-child { margin-bottom: 0; }
 
 /* ===================== SWORN ADVANTAGE ===================== */
+/* Wax seal photo (assets/img/sworn-seal.jpg, Unsplash License, Raymond
+   Petrik) — already-dark section, so only a scrim is needed, no text
+   color changes. */
 .sworn {
-  background: var(--color-charcoal-2);
-  color: var(--color-paper);
+  background:
+    linear-gradient(100deg, rgba(12,17,27,0.94) 0%, rgba(12,17,27,0.86) 55%, rgba(12,17,27,0.7) 100%),
+    url("../assets/img/sworn-seal.jpg") center right / cover no-repeat;
+  color: var(--color-white);
   padding-block: 96px;
 }
 .sworn-inner {
@@ -324,20 +355,48 @@ h1, h2, h3 {
   gap: 56px;
   align-items: start;
 }
-.sworn-copy p { color: rgba(250,248,244,0.78); margin-bottom: 18px; max-width: 520px; }
-.sworn-signatory { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
-.sworn-photo {
-  width: 76px; height: 76px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid var(--color-gold);
-  flex-shrink: 0;
-}
-.sworn-signatory-name { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; color: var(--color-paper); margin: 0; }
-.sworn-signatory-role { font-size: 0.85rem; color: var(--color-gold-light); margin: 0; }
+.sworn-copy p { color: rgba(255,255,255,0.75); margin-bottom: 18px; max-width: 520px; }
 .sworn-points { display: flex; flex-direction: column; gap: 28px; }
-.sworn-points h3 { color: var(--color-gold-light); font-size: 1.1rem; margin-bottom: 8px; }
-.sworn-points p { color: rgba(250,248,244,0.7); margin: 0; font-size: 0.92rem; }
+.sworn-points h3 { color: var(--color-accent-light); font-size: 1.1rem; margin-bottom: 8px; }
+.sworn-points p { color: rgba(255,255,255,0.68); margin: 0; font-size: 0.92rem; }
+
+/* ===================== FAQ ===================== */
+.faq { padding-block: 88px; }
+.faq-list {
+  max-width: 800px;
+  border-block-start: 1px solid var(--color-line);
+}
+.faq-item {
+  border-block-end: 1px solid var(--color-line);
+  padding-block: 20px;
+}
+.faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.02rem;
+  color: var(--color-charcoal-2);
+  list-style: none;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "+";
+  flex-shrink: 0;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--color-accent);
+  transition: transform 0.2s;
+}
+.faq-item[open] summary::after { content: "−"; }
+.faq-item p {
+  margin: 14px 0 0;
+  color: var(--color-muted);
+  font-size: 0.95rem;
+  max-width: 68ch;
+}
 
 /* ===================== CTA STRIP ===================== */
 .cta-strip { background: var(--color-paper-alt); padding-block: 56px; }
@@ -352,9 +411,23 @@ h1, h2, h3 {
 
 /* ===================== PAGE HERO (contact) ===================== */
 .page-hero { padding-block: 72px 40px; }
+.page-hero-inner {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+  align-items: center;
+}
 .page-hero-lead { color: var(--color-muted); max-width: 560px; font-size: 1.05rem; margin-bottom: 20px; }
 .contact-email-line { font-size: 0.95rem; color: var(--color-muted); }
-.contact-email { color: var(--color-gold); font-weight: 700; margin-inline-start: 6px; }
+.contact-email { color: var(--color-accent); font-weight: 800; margin-inline-start: 6px; }
+/* Desk/paper photo (assets/img/contact-documents.jpg, Unsplash License, Kelly Sikkema) */
+.page-hero-image {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+}
 
 /* ===================== QUOTE FORM ===================== */
 .quote-section { padding-block: 40px 100px; }
@@ -381,11 +454,11 @@ h1, h2, h3 {
 .form-field label {
   display: block;
   font-size: 0.85rem;
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 8px;
   color: var(--color-charcoal);
 }
-.form-field label span { color: var(--color-gold); }
+.form-field label span { color: var(--color-accent); }
 
 .form-field input,
 .form-field select,
@@ -393,8 +466,8 @@ h1, h2, h3 {
   width: 100%;
   padding: 12px 14px;
   border: 1px solid var(--color-line);
-  border-radius: 4px;
-  background: var(--color-paper);
+  border-radius: 8px;
+  background: var(--color-paper-alt);
   font: inherit;
   color: var(--color-ink);
 }
@@ -402,10 +475,21 @@ h1, h2, h3 {
 .form-field select:focus,
 .form-field textarea:focus {
   outline: none;
-  border-color: var(--color-gold);
-  box-shadow: 0 0 0 3px rgba(181,138,61,0.15);
+  border-color: var(--color-accent);
+  background: var(--color-white);
+  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.12);
 }
 .form-field textarea { resize: vertical; }
+
+/* Honeypot — off-screen, not display:none (some bots skip hidden fields specifically) */
+.form-field--honeypot {
+  position: absolute;
+  inset-inline-start: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  margin: 0;
+}
 
 /* File upload */
 .file-drop {
@@ -414,10 +498,10 @@ h1, h2, h3 {
   border-radius: var(--radius);
   padding: 26px;
   text-align: center;
-  background: var(--color-paper);
+  background: var(--color-paper-alt);
   transition: border-color 0.2s, background 0.2s;
 }
-.file-drop.is-dragover { border-color: var(--color-gold); background: rgba(181,138,61,0.06); }
+.file-drop.is-dragover { border-color: var(--color-accent); background: rgba(29, 78, 216, 0.05); }
 .file-drop input[type="file"] {
   position: absolute;
   inset: 0;
@@ -436,7 +520,7 @@ h1, h2, h3 {
   gap: 12px;
   font-size: 0.85rem;
   background: var(--color-paper-alt);
-  border-radius: 4px;
+  border-radius: 8px;
   padding: 8px 12px;
 }
 .file-list .file-remove {
@@ -462,12 +546,12 @@ h1, h2, h3 {
 .form-status {
   margin-top: 16px;
   padding: 12px 14px;
-  border-radius: 4px;
+  border-radius: 8px;
   font-size: 0.88rem;
-  background: rgba(181,138,61,0.12);
+  background: rgba(29, 78, 216, 0.08);
   color: var(--color-charcoal);
 }
-.form-status.is-error { background: rgba(179,38,30,0.1); color: var(--color-error); }
+.form-status.is-error { background: rgba(179,38,30,0.08); color: var(--color-error); }
 
 /* Sidebar */
 .quote-aside { display: flex; flex-direction: column; gap: 20px; }
@@ -479,14 +563,14 @@ h1, h2, h3 {
 }
 .aside-card h2 { font-size: 1.1rem; margin-bottom: 10px; color: var(--color-charcoal-2); }
 .aside-card p { font-size: 0.9rem; color: var(--color-muted); margin: 0 0 6px; }
-.aside-card--gold { background: var(--color-charcoal-2); border-color: var(--color-charcoal-2); }
-.aside-card--gold h2 { color: var(--color-gold-light); }
-.aside-card--gold p { color: rgba(250,248,244,0.75); }
+.aside-card--dark { background: var(--color-charcoal-2); border-color: var(--color-charcoal-2); }
+.aside-card--dark h2 { color: var(--color-accent-light); }
+.aside-card--dark p { color: rgba(255,255,255,0.75); }
 
 /* ===================== FOOTER ===================== */
 .site-footer {
   background: var(--color-charcoal-2);
-  color: rgba(250,248,244,0.85);
+  color: rgba(255,255,255,0.85);
   padding-block: 56px 24px;
 }
 .footer-grid {
@@ -495,21 +579,23 @@ h1, h2, h3 {
   gap: 32px;
   margin-bottom: 36px;
 }
-.footer-brand p { color: rgba(250,248,244,0.6); margin-top: 8px; font-size: 0.9rem; }
-.site-footer h3 { color: var(--color-gold-light); font-size: 1rem; margin-bottom: 14px; }
+/* Footer lockup variant: INDUSTRY flips to white so it reads on the dark bg */
+.site-footer .brand-word--industry { background: var(--color-white); color: var(--color-charcoal-2); }
+.footer-brand p { color: rgba(255,255,255,0.6); margin-top: 12px; font-size: 0.9rem; }
+.site-footer h3 { color: var(--color-accent-light); font-size: 1rem; margin-bottom: 14px; }
 .footer-links { display: flex; flex-direction: column; gap: 10px; }
-.footer-links a, .footer-links li { font-size: 0.9rem; color: rgba(250,248,244,0.75); }
-.footer-links a:hover { color: var(--color-gold-light); }
+.footer-links a, .footer-links li { font-size: 0.9rem; color: rgba(255,255,255,0.75); }
+.footer-links a:hover { color: var(--color-accent-light); }
 .footer-legal {
-  border-block-start: 1px solid rgba(250,248,244,0.12);
+  border-block-start: 1px solid rgba(255,255,255,0.12);
   padding-top: 20px;
   font-size: 0.8rem;
-  color: rgba(250,248,244,0.5);
+  color: rgba(255,255,255,0.5);
 }
 
 /* ===================== RESPONSIVE ===================== */
 @media (max-width: 860px) {
-  .sworn-inner, .quote-grid { grid-template-columns: 1fr; }
+  .sworn-inner, .quote-grid, .page-hero-inner { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
 }
 

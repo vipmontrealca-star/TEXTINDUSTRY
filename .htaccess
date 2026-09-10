@@ -1,0 +1,13 @@
+RewriteEngine on
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-SSL} !on
+RewriteCond %{HTTP_HOST} ^textindustry\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.textindustry\.com$
+RewriteRule ^/?$ "https\:\/\/textindustry\.com\/" [R=301,L]
+
+# mail.textindustry.com isn't a real webmail portal (that's
+# webmail.textindustry.com, provided by cPanel) -- it was falling
+# through to serve this document root's homepage instead. Redirect it
+# to the branded webmail gateway page.
+RewriteCond %{HTTP_HOST} ^mail\.textindustry\.com$ [NC]
+RewriteRule ^.*$ "https://textindustry.com/webmail.html" [R=302,L]

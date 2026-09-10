@@ -7,28 +7,52 @@
   <meta name="description" data-i18n-content="meta.contactDescription"
         content="Request a translation or localization quote from Textindustry. Attach your documents and receive a tailored estimate at quotes@textindustry.com." />
 
+  <!-- Social sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="TEXTINDUSTRY" />
+  <meta property="og:title" data-i18n-content="meta.contactTitle" content="Request a Quote — TEXTINDUSTRY" />
+  <meta property="og:description" data-i18n-content="meta.contactDescription" content="Send your documents and get a tailored translation quote from Textindustry, Beirut — sworn legal translation in English, French and Arabic." />
+  <meta property="og:url" content="https://textindustry.com/contact.html" />
+  <meta property="og:image" content="https://textindustry.com/assets/img/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#1d4ed8" />
+  <link rel="canonical" href="https://textindustry.com/contact.html" />
+  <link rel="alternate" hreflang="en" href="https://textindustry.com/contact.html" />
+  <link rel="alternate" hreflang="fr" href="https://fr.textindustry.com/contact.html" />
+  <link rel="alternate" hreflang="ar" href="https://ar.textindustry.com/contact.html" />
+  <link rel="alternate" hreflang="x-default" href="https://textindustry.com/contact.html" />
+
+  <!-- Structured data: helps search engines and AI assistants (AEO)
+       cite Textindustry accurately — services, location, languages. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Textindustry",
+    "alternateName": "TEXTINDUSTRY",
+    "url": "https://textindustry.com/",
+    "logo": "https://textindustry.com/assets/img/mark.svg",
+    "image": "https://textindustry.com/assets/img/og-image.jpg",
+    "description": "Sworn legal translation, localization, press release writing and creative editorial services for the MENA region, based in Beirut, Lebanon.",
+    "email": "quotes@textindustry.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Beirut",
+      "addressCountry": "LB"
+    },
+    "areaServed": { "@type": "Place", "name": "MENA region" },
+    "founder": { "@type": "Person", "name": "Norma Naboulsi", "jobTitle": "Sworn Translator" },
+    "knowsLanguage": ["en", "fr", "ar"]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&family=Tajawal:wght@400;500;700&family=Amiri:wght@400;700&family=Poppins:wght@300;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700;800&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet" />
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png" />
-
-  <!-- Open Graph / Twitter -->
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Textindustry" />
-  <meta property="og:title" content="Request a Quote — Textindustry" />
-  <meta property="og:description" content="Request a translation or localization quote from Textindustry. Attach your documents and receive a tailored estimate at quotes@textindustry.com." />
-  <meta property="og:image" content="https://textindustry.com/assets/img/og-image.png" />
-  <meta property="og:url" content="https://textindustry.com/contact.html" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Request a Quote — Textindustry" />
-  <meta name="twitter:description" content="Request a translation or localization quote from Textindustry. Attach your documents and receive a tailored estimate at quotes@textindustry.com." />
-  <meta name="twitter:image" content="https://textindustry.com/assets/img/og-image.png" />
-
+  <link rel="icon" type="image/svg+xml" href="assets/img/mark.svg" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
@@ -36,15 +60,24 @@
   <!-- ===================== HEADER ===================== -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="brand" aria-label="Textindustry — home">
-        <img src="assets/img/logo-mark.svg" class="brand-mark" width="34" height="34" alt="" />
-        <span class="brand-wordmark" dir="ltr"><span class="brand-word brand-word--text">Text</span><span class="brand-word brand-word--industry">Industry</span></span>
+      <a href="index.html" class="brand" aria-label="TEXTINDUSTRY — home">
+        <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+          <rect class="brand-mark-tile" width="48" height="48" rx="12"/>
+          <path class="brand-mark-stroke" d="M19 20 L10 29 L24 43 L38 29 L29 20" fill="none" stroke-width="3.2" stroke-linejoin="miter"/>
+          <path class="brand-mark-stroke" d="M16 28 L24 36 L32 28" fill="none" stroke-width="3.2" stroke-linejoin="miter"/>
+          <path class="brand-mark-stroke" d="M24 5.5 L30.5 12 L24 18.5 L17.5 12 Z" fill="none" stroke-width="3.2" stroke-linejoin="miter"/>
+          <path class="brand-mark-glyph" d="M24 9.6 L26.4 12 L24 14.4 L21.6 12 Z"/>
+        </svg>
+        <span class="brand-lockup">
+          <span class="brand-word brand-word--text">TEXT</span><span class="brand-word brand-word--industry">INDUSTRY</span>
+        </span>
       </a>
 
       <nav class="main-nav" id="main-nav" aria-label="Main navigation">
         <a href="index.html" class="nav-link" data-i18n="nav.home">Home</a>
         <a href="index.html#services" class="nav-link" data-i18n="nav.services">Services</a>
         <a href="index.html#sworn" class="nav-link" data-i18n="nav.sworn">The Sworn Advantage</a>
+        <a href="about.html" class="nav-link" data-i18n="nav.about">About Us</a>
         <a href="contact.html" class="nav-link nav-cta is-active" data-i18n="nav.quote">Request a Quote</a>
       </nav>
 
@@ -67,14 +100,17 @@
   <main>
     <!-- ===================== PAGE INTRO ===================== -->
     <section class="page-hero">
-      <div class="container">
-        <p class="section-eyebrow" data-i18n="contact.eyebrow">Contact &amp; Orders</p>
-        <h1 class="section-title" data-i18n="contact.title">Request a quote</h1>
-        <p class="page-hero-lead" data-i18n="contact.lead">Tell us about your project and attach your documents — we reply with a tailored quote, usually within one business day.</p>
-        <p class="contact-email-line">
-          <span data-i18n="contact.emailLabel">Prefer email? Write to us directly at</span>
-          <a class="contact-email" href="mailto:quotes@textindustry.com">quotes@textindustry.com</a>
-        </p>
+      <div class="container page-hero-inner">
+        <div class="page-hero-copy">
+          <p class="section-eyebrow" data-i18n="contact.eyebrow">Contact &amp; Orders</p>
+          <h1 class="section-title" data-i18n="contact.title">Request a quote</h1>
+          <p class="page-hero-lead" data-i18n="contact.lead">Tell us about your project and attach your documents — we reply with a tailored quote, usually within one business day.</p>
+          <p class="contact-email-line">
+            <span data-i18n="contact.emailLabel">Prefer email? Write to us directly at</span>
+            <a class="contact-email" href="mailto:quotes@textindustry.com">quotes@textindustry.com</a>
+          </p>
+        </div>
+        <img class="page-hero-image" src="assets/img/contact-documents.jpg" alt="" loading="lazy" width="1600" height="1067" />
       </div>
     </section>
 
@@ -82,7 +118,13 @@
     <section class="quote-section">
       <div class="container quote-grid">
 
-        <form id="quote-form" class="quote-form" action="mailto:quotes@textindustry.com" method="post" enctype="multipart/form-data" novalidate>
+        <form id="quote-form" class="quote-form" action="php/send-quote.php" method="post" enctype="multipart/form-data" novalidate>
+          <!-- Honeypot: hidden from real users, catches naive bots that autofill every field -->
+          <div class="form-field form-field--honeypot" aria-hidden="true">
+            <label for="website">Website</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+          </div>
+
           <div class="form-row">
             <div class="form-field">
               <label for="name" data-i18n="form.name">Full name <span aria-hidden="true">*</span></label>
@@ -177,7 +219,7 @@
             <p><a class="contact-email" href="mailto:quotes@textindustry.com">quotes@textindustry.com</a></p>
             <p data-i18n="footer.location">Beirut, Lebanon</p>
           </div>
-          <div class="aside-card aside-card--gold">
+          <div class="aside-card aside-card--dark">
             <h2 data-i18n="contact.swornTitle">Need a certified translation?</h2>
             <p data-i18n="contact.swornBody">Mention "sworn stamp" in your project details and attach the original document — certified translations are signed and sealed by Norma Naboulsi, Sworn Translator in Lebanon.</p>
           </div>
@@ -191,10 +233,9 @@
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="footer-brand">
-        <p class="brand">
-          <img src="assets/img/logo-mark.svg" class="brand-mark" width="28" height="28" alt="" />
-          <span class="brand-wordmark" dir="ltr"><span class="brand-word brand-word--text">Text</span><span class="brand-word brand-word--industry">Industry</span></span>
-        </p>
+        <span class="brand-lockup">
+          <span class="brand-word brand-word--text">TEXT</span><span class="brand-word brand-word--industry">INDUSTRY</span>
+        </span>
         <p data-i18n="footer.tagline">Translation · Localization · Editorial — Beirut, Lebanon.</p>
       </div>
       <div>

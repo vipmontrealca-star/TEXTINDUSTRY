@@ -9,10 +9,12 @@ window.TEXTINDUSTRY_I18N = {
       homeTitle: "Textindustry — Translation & Localization, Beirut",
       homeDescription: "Textindustry is a Beirut-based translation and localization agency serving the MENA region. Sworn legal translation, localization, press releases and creative editorial in English, French and Arabic.",
       contactTitle: "Request a Quote — Textindustry",
-      contactDescription: "Request a translation or localization quote from Textindustry. Attach your documents and receive a tailored estimate at quotes@textindustry.com."
+      contactDescription: "Request a translation or localization quote from Textindustry. Attach your documents and receive a tailored estimate at quotes@textindustry.com.",
+      aboutTitle: "About Us — Textindustry",
+      aboutDescription: "Textindustry is led by Norma Naboulsi, a Sworn Translator officially authorized in Lebanon, serving the MENA region in English, French and Arabic."
     },
     nav: {
-      home: "Home", services: "Services", sworn: "The Sworn Advantage",
+      home: "Home", services: "Services", sworn: "The Sworn Advantage", about: "About Us",
       quote: "Request a Quote", menu: "Menu"
     },
     hero: {
@@ -74,8 +76,42 @@ window.TEXTINDUSTRY_I18N = {
       attachmentsError: "One or more files were rejected: only PDF, DOCX, PNG and JPG up to 10 MB are accepted.",
       privacy: "Your documents are treated as strictly confidential.",
       submit: "Send Request",
-      successStatus: "Thanks — your default email client will open to send this request to quotes@textindustry.com.",
-      errorStatus: "Please fill in all required fields before sending."
+      successStatus: "Thanks — your request has been sent to quotes@textindustry.com. We'll be in touch soon.",
+      errorStatus: "Please fill in all required fields before sending.",
+      networkError: "Could not reach the server. Please email quotes@textindustry.com directly.",
+      genericError: "Something went wrong on our end. Please try again or email quotes@textindustry.com directly."
+    },
+    faq: {
+      eyebrow: "Frequently Asked",
+      title: "Common questions",
+      q1: "What is a sworn (certified) translation, and when do I need one?",
+      a1: "A sworn translation is certified by an officially recognized sworn translator — Norma Naboulsi, Sworn Translator in Lebanon — and sealed with an official stamp. It's required whenever a translated document must be accepted by courts, notaries, ministries, embassies or international institutions: contracts, judgments, diplomas, civil-status records and similar official documents.",
+      q2: "Which languages does Textindustry work in?",
+      a2: "We translate and localize between English, French and Arabic.",
+      q3: "What areas do you serve?",
+      a3: "We're based in Beirut, Lebanon, and serve clients across the MENA region and internationally — quote requests and document submissions are handled remotely by email.",
+      q4: "What services does Textindustry offer besides translation?",
+      a4: "Alongside sworn legal translation, we offer localization for digital and cultural adaptation, press release writing and distribution, and fashion and creative editorial content.",
+      q5: "How do I request a quote, and what can I attach?",
+      a5: "Use the quote request form on our Contact page — you can attach PDF, DOCX, PNG or JPG files (up to 10MB each) directly with your request, or email quotes@textindustry.com.",
+      q6: "Is my document handled confidentially?",
+      a6: "Yes — all documents, especially sensitive legal material, are treated as strictly confidential."
+    },
+    about: {
+      eyebrow: "About Us",
+      title: "A name you can trust with your words",
+      lead: "Textindustry is led by Norma Naboulsi, a Sworn Translator officially authorized in Lebanon, serving clients across the MENA region in English, French and Arabic.",
+      founderName: "Norma Naboulsi, Sworn Translator",
+      founderBody1: "Norma Naboulsi leads Textindustry as a Sworn Translator officially recognized in Lebanon, authorized to certify translations with an official stamp accepted by courts, notaries, ministries, embassies and international institutions.",
+      founderBody2: "Under her direction, Textindustry brings the same precision to legal translation, localization, press communications and creative editorial — always across English, French and Arabic, always with the region's cultural context in mind.",
+      valuesEyebrow: "What Guides Us",
+      valuesTitle: "Precision, fluency, discretion",
+      value1Title: "Precision",
+      value1Body: "Every document is translated and reviewed with the accuracy a sworn stamp demands.",
+      value2Title: "Cultural Fluency",
+      value2Body: "Content is adapted for the MENA region, not just translated into it.",
+      value3Title: "Confidentiality",
+      value3Body: "Legal and business documents are handled under strict confidentiality, always."
     },
     lang: { arabic: "Arabic", english: "English", french: "French", other: "Other" }
   },
@@ -86,10 +122,12 @@ window.TEXTINDUSTRY_I18N = {
       homeTitle: "Textindustry — Traduction & Localisation, Beyrouth",
       homeDescription: "Textindustry est une agence de traduction et de localisation basée à Beyrouth, au service de la région MENA. Traduction juridique assermentée, localisation, communiqués de presse et rédaction créative en anglais, français et arabe.",
       contactTitle: "Demander un devis — Textindustry",
-      contactDescription: "Demandez un devis de traduction ou de localisation auprès de Textindustry. Joignez vos documents et recevez une estimation personnalisée à quotes@textindustry.com."
+      contactDescription: "Demandez un devis de traduction ou de localisation auprès de Textindustry. Joignez vos documents et recevez une estimation personnalisée à quotes@textindustry.com.",
+      aboutTitle: "À propos — Textindustry",
+      aboutDescription: "Textindustry est dirigée par Norma Naboulsi, traductrice assermentée officiellement habilitée au Liban, au service de la région MENA en anglais, français et arabe."
     },
     nav: {
-      home: "Accueil", services: "Services", sworn: "L'avantage assermenté",
+      home: "Accueil", services: "Services", sworn: "L'avantage assermenté", about: "À propos",
       quote: "Demander un devis", menu: "Menu"
     },
     hero: {
@@ -151,8 +189,42 @@ window.TEXTINDUSTRY_I18N = {
       attachmentsError: "Un ou plusieurs fichiers ont été refusés : seuls les formats PDF, DOCX, PNG et JPG jusqu'à 10 Mo sont acceptés.",
       privacy: "Vos documents sont traités en toute confidentialité.",
       submit: "Envoyer la demande",
-      successStatus: "Merci — votre client de messagerie par défaut va s'ouvrir pour envoyer cette demande à quotes@textindustry.com.",
-      errorStatus: "Veuillez remplir tous les champs obligatoires avant d'envoyer."
+      successStatus: "Merci — votre demande a été envoyée à quotes@textindustry.com. Nous vous répondrons sous peu.",
+      errorStatus: "Veuillez remplir tous les champs obligatoires avant d'envoyer.",
+      networkError: "Impossible de joindre le serveur. Veuillez écrire directement à quotes@textindustry.com.",
+      genericError: "Une erreur est survenue de notre côté. Veuillez réessayer ou écrire directement à quotes@textindustry.com."
+    },
+    faq: {
+      eyebrow: "Questions fréquentes",
+      title: "Questions courantes",
+      q1: "Qu'est-ce qu'une traduction assermentée (certifiée), et quand en ai-je besoin ?",
+      a1: "Une traduction assermentée est certifiée par une traductrice assermentée officiellement reconnue — Norma Naboulsi, traductrice assermentée au Liban — et scellée d'un cachet officiel. Elle est requise chaque fois qu'un document traduit doit être accepté par des tribunaux, notaires, ministères, ambassades ou institutions internationales : contrats, jugements, diplômes, actes d'état civil et documents officiels similaires.",
+      q2: "Dans quelles langues travaille Textindustry ?",
+      a2: "Nous traduisons et adaptons entre l'anglais, le français et l'arabe.",
+      q3: "Quelles régions desservez-vous ?",
+      a3: "Nous sommes basés à Beyrouth, au Liban, et servons des clients dans toute la région MENA et à l'international — les demandes de devis et l'envoi de documents se font à distance par e-mail.",
+      q4: "Quels services proposez-vous en plus de la traduction ?",
+      a4: "En plus de la traduction juridique assermentée, nous proposons la localisation pour l'adaptation numérique et culturelle, la rédaction et diffusion de communiqués de presse, ainsi que du contenu éditorial créatif pour la mode.",
+      q5: "Comment demander un devis, et que puis-je joindre ?",
+      a5: "Utilisez le formulaire de demande de devis sur notre page Contact — vous pouvez joindre directement des fichiers PDF, DOCX, PNG ou JPG (jusqu'à 10 Mo chacun), ou écrire à quotes@textindustry.com.",
+      q6: "Mon document est-il traité de manière confidentielle ?",
+      a6: "Oui — tous les documents, en particulier les documents juridiques sensibles, sont traités en toute confidentialité."
+    },
+    about: {
+      eyebrow: "À propos",
+      title: "Un nom en qui faire confiance pour vos mots",
+      lead: "Textindustry est dirigée par Norma Naboulsi, traductrice assermentée officiellement habilitée au Liban, au service de clients dans toute la région MENA en anglais, français et arabe.",
+      founderName: "Norma Naboulsi, traductrice assermentée",
+      founderBody1: "Norma Naboulsi dirige Textindustry en tant que traductrice assermentée officiellement reconnue au Liban, habilitée à certifier des traductions au moyen d'un cachet officiel accepté par les tribunaux, notaires, ministères, ambassades et institutions internationales.",
+      founderBody2: "Sous sa direction, Textindustry applique la même précision à la traduction juridique, à la localisation, aux communications de presse et à la rédaction créative — toujours en anglais, français et arabe, toujours en tenant compte du contexte culturel de la région.",
+      valuesEyebrow: "Ce qui nous guide",
+      valuesTitle: "Précision, aisance linguistique, discrétion",
+      value1Title: "Précision",
+      value1Body: "Chaque document est traduit et relu avec l'exactitude qu'exige un cachet assermenté.",
+      value2Title: "Aisance culturelle",
+      value2Body: "Le contenu est adapté pour la région MENA, et non simplement traduit à son intention.",
+      value3Title: "Confidentialité",
+      value3Body: "Les documents juridiques et professionnels sont toujours traités en toute confidentialité."
     },
     lang: { arabic: "Arabe", english: "Anglais", french: "Français", other: "Autre" }
   },
@@ -163,10 +235,12 @@ window.TEXTINDUSTRY_I18N = {
       homeTitle: "تكست إندستري — ترجمة وتوطين، بيروت",
       homeDescription: "تكست إندستري وكالة ترجمة وتوطين مقرها بيروت، تخدم منطقة الشرق الأوسط وشمال أفريقيا. ترجمة قانونية محلّفة، توطين، بيانات صحفية، وتحرير إبداعي بالإنكليزية والفرنسية والعربية.",
       contactTitle: "اطلب عرض سعر — تكست إندستري",
-      contactDescription: "اطلب عرض سعر للترجمة أو التوطين من تكست إندستري. أرفق مستنداتك واحصل على عرض سعر مخصص عبر quotes@textindustry.com."
+      contactDescription: "اطلب عرض سعر للترجمة أو التوطين من تكست إندستري. أرفق مستنداتك واحصل على عرض سعر مخصص عبر quotes@textindustry.com.",
+      aboutTitle: "من نحن — تكست إندستري",
+      aboutDescription: "تقودها نورما نابلسي، مترجمة محلّفة معتمدة رسميًا في لبنان، في خدمة منطقة الشرق الأوسط وشمال أفريقيا بالإنكليزية والفرنسية والعربية."
     },
     nav: {
-      home: "الرئيسية", services: "الخدمات", sworn: "ميزة الترجمة المحلّفة",
+      home: "الرئيسية", services: "الخدمات", sworn: "ميزة الترجمة المحلّفة", about: "من نحن",
       quote: "اطلب عرض سعر", menu: "القائمة"
     },
     hero: {
@@ -228,8 +302,42 @@ window.TEXTINDUSTRY_I18N = {
       attachmentsError: "تم رفض ملف واحد أو أكثر: يُقبل فقط PDF وDOCX وPNG وJPG حتى 10 ميغابايت.",
       privacy: "تُعامَل مستنداتكم بسرية تامة.",
       submit: "إرسال الطلب",
-      successStatus: "شكرًا — سيُفتح برنامج البريد الإلكتروني الافتراضي لإرسال هذا الطلب إلى quotes@textindustry.com.",
-      errorStatus: "يرجى تعبئة جميع الحقول المطلوبة قبل الإرسال."
+      successStatus: "شكرًا — تم إرسال طلبكم إلى quotes@textindustry.com. سنرد عليكم قريبًا.",
+      errorStatus: "يرجى تعبئة جميع الحقول المطلوبة قبل الإرسال.",
+      networkError: "تعذّر الوصول إلى الخادم. يرجى مراسلتنا مباشرة على quotes@textindustry.com.",
+      genericError: "حدث خطأ من جانبنا. يرجى المحاولة مجددًا أو مراسلتنا مباشرة على quotes@textindustry.com."
+    },
+    faq: {
+      eyebrow: "أسئلة شائعة",
+      title: "أسئلة متكررة",
+      q1: "ما هي الترجمة المحلّفة (المصدّقة)، ومتى أحتاج إليها؟",
+      a1: "الترجمة المحلّفة مصدّقة من قبل مترجمة محلّفة معترف بها رسميًا — نورما نابلسي، مترجمة محلّفة في لبنان — ومختومة بختم رسمي. تُطلب كلما وجب أن يُقبل مستند مترجم لدى المحاكم أو كتّاب العدل أو الوزارات أو السفارات أو المؤسسات الدولية: عقود، أحكام، شهادات، سجلات الأحوال المدنية ومستندات رسمية مماثلة.",
+      q2: "ما هي اللغات التي تعمل بها تكست إندستري؟",
+      a2: "نترجم ونوطّن بين الإنكليزية والفرنسية والعربية.",
+      q3: "ما هي المناطق التي تخدمونها؟",
+      a3: "مقرنا في بيروت، لبنان، ونخدم عملاء في جميع أنحاء منطقة الشرق الأوسط وشمال أفريقيا وعالميًا — تُعالَج طلبات عروض الأسعار وإرسال المستندات عن بُعد عبر البريد الإلكتروني.",
+      q4: "ما هي الخدمات التي تقدمها تكست إندستري إلى جانب الترجمة؟",
+      a4: "إلى جانب الترجمة القانونية المحلّفة، نقدّم التوطين للتكيّف الرقمي والثقافي، وكتابة وتوزيع البيانات الصحفية، ومحتوى تحريريًا إبداعيًا لعالم الموضة.",
+      q5: "كيف أطلب عرض سعر، وماذا يمكنني إرفاقه؟",
+      a5: "استخدموا نموذج طلب عرض السعر في صفحة التواصل — يمكنكم إرفاق ملفات PDF أو DOCX أو PNG أو JPG (حتى 10 ميغابايت لكل ملف) مباشرة مع طلبكم، أو المراسلة على quotes@textindustry.com.",
+      q6: "هل تُعامَل مستنداتي بسرية؟",
+      a6: "نعم — تُعامَل جميع المستندات، لا سيما المواد القانونية الحساسة، بسرية تامة."
+    },
+    about: {
+      eyebrow: "من نحن",
+      title: "اسم يمكنكم الوثوق به لكلماتكم",
+      lead: "تقود نورما نابلسي تكست إندستري، وهي مترجمة محلّفة معتمدة رسميًا في لبنان، في خدمة عملاء في جميع أنحاء منطقة الشرق الأوسط وشمال أفريقيا بالإنكليزية والفرنسية والعربية.",
+      founderName: "نورما نابلسي، مترجمة محلّفة",
+      founderBody1: "تقود نورما نابلسي تكست إندستري بصفتها مترجمة محلّفة معترف بها رسميًا في لبنان، ومخوّلة بتصديق الترجمات بختم رسمي مقبول لدى المحاكم وكتّاب العدل والوزارات والسفارات والمؤسسات الدولية.",
+      founderBody2: "تحت إشرافها، تطبّق تكست إندستري الدقة نفسها على الترجمة القانونية والتوطين والاتصالات الصحفية والتحرير الإبداعي — دائمًا بالإنكليزية والفرنسية والعربية، ودائمًا مع مراعاة السياق الثقافي للمنطقة.",
+      valuesEyebrow: "ما يوجّهنا",
+      valuesTitle: "الدقة، والتمكّن الثقافي، والكتمان",
+      value1Title: "الدقة",
+      value1Body: "تُترجم كل وثيقة وتُراجع بالدقة التي يتطلبها الختم المحلّف.",
+      value2Title: "التمكّن الثقافي",
+      value2Body: "يُكيَّف المحتوى لمنطقة الشرق الأوسط وشمال أفريقيا، لا أن يُترجم إليها فحسب.",
+      value3Title: "السرية",
+      value3Body: "تُعامَل المستندات القانونية والتجارية دائمًا بسرية تامة."
     },
     lang: { arabic: "العربية", english: "الإنكليزية", french: "الفرنسية", other: "أخرى" }
   }

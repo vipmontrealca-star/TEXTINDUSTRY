@@ -1,0 +1,9 @@
+PHPMailer for PHP
+Source: https://github.com/PHPMailer/PHPMailer
+Version vendored: v7.1.1
+License: GNU Lesser General Public License v2.1
+         https://github.com/PHPMailer/PHPMailer/blob/v7.1.1/LICENSE
+
+Files in src/ (PHPMailer.php, SMTP.php, Exception.php) are vendored
+unmodified from the tagged release above. Not managed via Composer because
+Composer/SSH access on the target HostGator plan was not confirmed.
