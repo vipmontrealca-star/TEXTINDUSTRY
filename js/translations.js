@@ -40,7 +40,6 @@ window.TEXTINDUSTRY_I18N = {
     sworn: {
       eyebrow: "The Sworn Advantage",
       title: "A signature that carries legal weight",
-      signatoryRole: "Sworn Translator, Lebanon",
       body1: "Norma Naboulsi is a Sworn Translator in Lebanon, authorized to certify translations with an official stamp. Documents bearing this seal are accepted by courts, notaries, ministries, embassies and international institutions.",
       body2: "That means your contracts, diplomas, judgments and civil documents don't just read correctly — they are legally valid, without an intermediary and without delay.",
       cta: "Certify a Document",
@@ -153,7 +152,6 @@ window.TEXTINDUSTRY_I18N = {
     sworn: {
       eyebrow: "L'avantage assermenté",
       title: "Une signature qui a valeur juridique",
-      signatoryRole: "Traductrice assermentée, Liban",
       body1: "Norma Naboulsi est traductrice assermentée au Liban, habilitée à certifier des traductions avec un cachet officiel. Les documents portant ce sceau sont acceptés par les tribunaux, notaires, ministères, ambassades et institutions internationales.",
       body2: "Cela signifie que vos contrats, diplômes, jugements et documents civils ne sont pas seulement correctement rédigés — ils sont juridiquement valables, sans intermédiaire ni délai.",
       cta: "Certifier un document",
@@ -266,7 +264,6 @@ window.TEXTINDUSTRY_I18N = {
     sworn: {
       eyebrow: "ميزة الترجمة المحلّفة",
       title: "توقيع له قيمة قانونية",
-      signatoryRole: "مترجمة محلّفة، لبنان",
       body1: "نورما نابلسي مترجمة محلّفة في لبنان، مخوّلة بتصديق الترجمات بختم رسمي. المستندات التي تحمل هذا الختم مقبولة لدى المحاكم وكتّاب العدل والوزارات والسفارات والمؤسسات الدولية.",
       body2: "هذا يعني أن عقودكم وشهاداتكم وأحكامكم ومستنداتكم المدنية لا تُقرأ بشكل صحيح فحسب — بل تكون صالحة قانونيًا، من دون وسيط ومن دون تأخير.",
       cta: "صدّق مستندًا",
