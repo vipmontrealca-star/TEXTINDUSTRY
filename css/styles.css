@@ -278,6 +278,9 @@ h1, h2, h3 {
 .btn-light { background: var(--color-white); color: var(--color-charcoal-2); }
 .btn-light:hover { background: var(--color-accent); color: var(--color-white); }
 .btn-wide { width: 100%; }
+.btn-whatsapp { background: #25d366; color: #ffffff; gap: 10px; padding: 12px 22px; font-size: 0.92rem; }
+.btn-whatsapp:hover { background: #1ebe57; }
+.btn-whatsapp svg { width: 18px; height: 18px; fill: currentColor; flex-shrink: 0; }
 
 /* ===================== SECTION HEAD ===================== */
 .section-head { max-width: 640px; margin-bottom: 48px; }
@@ -332,24 +335,59 @@ h1, h2, h3 {
 .service-card--featured .service-tag { background: rgba(255,255,255,0.16); color: var(--color-white); }
 
 /* ===================== FOUNDER (about page) ===================== */
-.founder { background: var(--color-paper-alt); padding-block: 72px; }
+.founder { background: var(--color-paper-alt); padding-block: 88px; }
 .founder-inner {
-  max-width: 880px;
+  max-width: 980px;
   display: grid;
-  grid-template-columns: 1fr 240px;
-  gap: 40px;
-  align-items: start;
+  grid-template-columns: 320px 1fr;
+  gap: 56px;
+  align-items: center;
 }
 .founder-inner .section-title { margin-bottom: 20px; }
 .founder-inner p { color: var(--color-muted); margin: 0 0 16px; font-size: 1.02rem; }
 .founder-inner p:last-child { margin-bottom: 0; }
-.founder-photo {
+.founder-photo-wrap {
+  position: relative;
   width: 100%;
-  aspect-ratio: 1 / 1;
+}
+.founder-photo-wrap::before {
+  content: "";
+  position: absolute;
+  inset-block-start: 20px;
+  inset-inline-start: 20px;
+  inset-block-end: -20px;
+  inset-inline-end: -20px;
+  background: var(--color-accent);
+  border-radius: var(--radius);
+  z-index: 0;
+}
+.founder-photo {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
   border-radius: var(--radius);
   box-shadow: var(--shadow-soft);
 }
+.founder-photo-caption {
+  position: absolute;
+  z-index: 2;
+  inset-inline-start: 20px;
+  inset-block-end: -14px;
+  margin: 0;
+  background: var(--color-white);
+  color: var(--color-accent);
+  font-weight: 800;
+  font-size: 0.82rem;
+  letter-spacing: 0.01em;
+  padding: 9px 18px;
+  border-radius: 999px;
+  box-shadow: var(--shadow-soft);
+  white-space: nowrap;
+}
+.founder-whatsapp { margin-top: 8px; }
 
 /* ===================== SWORN ADVANTAGE ===================== */
 /* Wax seal photo (assets/img/sworn-seal.jpg, Unsplash License, Raymond
@@ -611,7 +649,7 @@ h1, h2, h3 {
 @media (max-width: 860px) {
   .sworn-inner, .quote-grid, .page-hero-inner, .founder-inner { grid-template-columns: 1fr; }
   .founder-inner { justify-items: start; }
-  .founder-photo { max-width: 200px; order: -1; }
+  .founder-photo-wrap { max-width: 240px; margin-bottom: 20px; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
 }
 

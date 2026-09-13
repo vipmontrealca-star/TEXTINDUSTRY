@@ -297,3 +297,13 @@ No regressions. `mail.textindustry.com` → branded gateway is fully live.
 **Delivered:** added a "WhatsApp — @textindustry" link (`https://wa.me/textindustry`) to the "Direct contact" card on the quote request page, and to Norma's founder section on the About page — both EN source pages and the fr/ar static snapshots, plus a new `contact.whatsapp` i18n key (EN/FR/AR).
 
 **Assumption flagged, not verified by this session:** this assumes the `textindustry` username has actually been reserved on the business's WhatsApp account — username availability can't be checked from here. If it hasn't been reserved yet, the link won't resolve to the right account (or may 404) until it is.
+
+### 2026-09-13 — Founder photo re-crop + editorial redesign; WhatsApp as a real button
+**Client feedback:** the About page photo was cropped too tightly and the section needed more visual polish; the WhatsApp link needed to look and behave like an actual button.
+
+**Delivered:**
+- **Re-cropped `assets/img/norma-naboulsi.jpg`** from the original client photo: a taller 4:5 portrait crop (720×900) showing her full upper body, blazer and the notebook/pen she's writing with, instead of the previous tight square headshot that discarded most of the photo.
+- **Redesigned `.founder-inner`** into a more editorial "meet the founder" layout: larger photo (320px column, 4:5 aspect), an offset accent-color block behind it for depth (`.founder-photo-wrap::before`, using logical inset properties so it mirrors correctly in RTL), and a floating white pill caption ("Sworn Translator, Lebanon" / localized) overlapping the photo's bottom corner. New `about.founderRole` i18n key (EN/FR/AR).
+- **WhatsApp is now a real button**, not a text link: `.btn.btn-whatsapp` (WhatsApp's brand green, white text, official WhatsApp glyph icon inline-SVG) on both the Contact page's "Direct contact" card and the About page's founder section, EN source pages and fr/ar static snapshots.
+
+**Verified:** desktop and mobile layouts both render correctly (mobile stacks photo-with-caption above the bio text, offset block still visible); WhatsApp button opens `https://wa.me/textindustry` on click; no new console errors.
